@@ -1,12 +1,8 @@
 package algorithms;
 
-import java.awt.Shape;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+
 import java.util.Comparator;
 
-import shape.CompareArea;
 
 public class BubbleSort
 {
@@ -74,7 +70,7 @@ public class BubbleSort
             for (int j = 0; j < x-1-i; j++)
             {
                 //compare adjacent elements using the provided comparator
-                int res = c.compare(array[j, array[j+1]])
+                int res = c.compare(array[j], array[j+1]);
                 //If current element greater than the next one, swap them.
                 if (res < 0 )
                 {
