@@ -3,7 +3,7 @@ package algorithms;
 import java.util.Comparator;
 
 
-public class MergSort
+public class MergeSort
 {
     //Generic merge sort for arrays of Comparable elements
     public static <T extends Comparable<? super T>> void mergSort(T[] arr, int firstIndex, int lastIndex)

@@ -1,12 +1,12 @@
 package algorithms;
 
-import jav.util.Comparator;
+import java.util.Comparator;
 
 
 public class SelectionSort
 {
     //Selection sort using the natural ordering of elements - Comparable
-    public static <T extends Comparable<? super T>> void SelectionSort(T[ array])
+    public static <T extends Comparable<? super T>> void SelectionSort(T[] array)
     {
         int x = array.length;
         
@@ -68,7 +68,7 @@ public class SelectionSort
 
             }
 
-            if res2 = c.compare(large, array[i]);
+            int res2 = c.compare(large, array[i]);
             if(res2 > 0)
             {
                 T temp =  array[i];
@@ -78,3 +78,6 @@ public class SelectionSort
         }
     }
 }
+
+
+

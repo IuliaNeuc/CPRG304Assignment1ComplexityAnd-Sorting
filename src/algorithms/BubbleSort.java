@@ -55,7 +55,7 @@ public class BubbleSort
         }
 
         stop = System.currentTimeMillis(); // record the stop time
-        System.outprintln("Time complexity of: " + (stop - start));
+        System.out.println("Time complexity of: " + (stop - start));
 
     }
     
@@ -74,7 +74,7 @@ public class BubbleSort
             for (int j = 0; j < x-1-i; j++)
             {
                 //compare adjacent elements using the provided comparator
-                int res = c.compare(array[j, array[j+1]])
+                int res = c.compare(array[j], array[j+1]);
                 //If current element greater than the next one, swap them.
                 if (res < 0 )
                 {
