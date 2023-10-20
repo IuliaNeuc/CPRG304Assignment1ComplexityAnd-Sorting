@@ -12,7 +12,7 @@ public class InsertionSort
 
 
     //Insertion sort for arrays of Comparable elements
-    public static <T extends Comparable < ? super T>> void InsertionSort(T[] arr)
+    public static <T extends Comparable < ? super T>> void insertionSort(T[] arr)
     {
         //Outer loop for iterating through the array
         for(int i = 0; i < arr.length - 1; i++)
@@ -45,7 +45,7 @@ public class InsertionSort
 
    
     // Insertion sort for arrays with a custom Comparator
-    public static <T extends Comparable < ? super T>> void InsertionSort(T[] arr, Comparator<? super T>c)
+    public static <T extends Comparable < ? super T>> void insertionSort(T[] arr, Comparator<? super T>c)
     {
         //Outer loop for iterating through the array 
         for(int i = 0 ; i < arr.length - 1; i++)
@@ -54,7 +54,7 @@ public class InsertionSort
             for(int j = i; j >= 0; j--)
             {
                 //Compare adjacent elements using custom Comparator and swapping them in case they are not in the correct order
-                if(c.compare(arr[j], arr[j+1] < 0))
+                if(c.compare(arr[j], arr[j+1]) < 0)
                 {
                     T tempVal;
                     tempVal = arr[j+1];

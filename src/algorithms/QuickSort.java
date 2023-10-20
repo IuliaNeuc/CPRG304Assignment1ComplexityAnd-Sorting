@@ -39,7 +39,7 @@ public class QuickSort
             if(arr[j].compareTo(pivot) > 0)
             {
                 T tempVal = arr[j];
-                arr[j] = arr[i]
+                arr[j] = arr[i];
                 arr[i] = tempVal;
                 i++; //Move the index of the smaller element
             }

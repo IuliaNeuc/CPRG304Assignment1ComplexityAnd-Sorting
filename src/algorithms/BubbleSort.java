@@ -55,7 +55,7 @@ public class BubbleSort
         }
 
         stop = System.currentTimeMillis(); // record the stop time
-        System.outprintln("Time complexity of: " + (stop - start));
+        System.out.println("Time complexity of: " + (stop - start));
 
     }
     

@@ -3,7 +3,7 @@ package algorithms;
 import java.util.Comparator;
 
 
-public class MergSort
+public class MergeSort
 {
     //Generic merge sort for arrays of Comparable elements
     public static <T extends Comparable<? super T>> void mergSort(T[] arr, int firstIndex, int lastIndex)
@@ -26,7 +26,7 @@ public class MergSort
     static <T extends Comparable<? super T>> void merg(T[] arr, int firstIndex,  int middle, int lastIndex)
     {
         //Create left and right temporary arrays
-        T[] leftArray = (T[]) new Comparable[middle - firstIndex + 1];
+        T[] leftArray = (T[])  new Comparable[middle - firstIndex + 1];
         T[] rightArray = (T[]) new Comparable[lastIndex - middle];
 
         //Copy data from the original array to the left and right arrays
@@ -70,16 +70,14 @@ public class MergSort
         }
 
         // Copy any remaining elements from the left array
-        while (leftIndex < leftArray.length)
-        {
+        while (leftIndex < leftArray.length)        
             arr[currentIndex++] = leftArray[leftIndex++];
-        }
+        
 
         // Copy any remaining elements from the right array
-        while(rightIndex < rightArray.length)
-        {
-            arr[currentIndex++] = rightArray[rightIndex++]
-        }
+        while(rightIndex < rightArray.length)        
+            arr[currentIndex++] = rightArray[rightIndex++];
+        
     }
     
 
@@ -152,20 +150,23 @@ public class MergSort
                     arr[currentIndex] = rightArray[rightIndex];
                     rightIndex++;
                 }
+                currentIndex++;
             }
-            currentIndex++;
+
+            // Copy any remaining elements from the left array
+            while(leftIndex < leftArray.length)
+            {
+               arr[currentIndex++] = leftArray[leftIndex++];
+            }
+
+           // Copy any remaining elements from the right array
+           while(rightIndex < rightArray.length)
+           {
+              arr[currentIndex++] = rightArray[rightIndex++];
+           }
+            
         }
 
-        // Copy any remaining elements from the left array
-        while(leftIndex < leftArray.length)
-        {
-            arr[currentIndex++] = leftArray[leftIndex++];
-        }
 
-        // Copy any remaining elements from the right array
-        while(rightIndex < rightArray.length)
-        {
-            arr[currentIndex++] = rightArray[rightIndex++];
-        }
     }
 }
