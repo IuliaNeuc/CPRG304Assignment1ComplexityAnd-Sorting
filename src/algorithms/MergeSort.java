@@ -75,9 +75,16 @@ public class MergeSort
         
 
         // Copy any remaining elements from the right array
+
         while(rightIndex < rightArray.length)        
             arr[currentIndex++] = rightArray[rightIndex++];
         
+
+        while(rightIndex < rightArray.length)
+        {
+            arr[currentIndex++] = rightArray[rightIndex++];
+        }
+
     }
     
 
