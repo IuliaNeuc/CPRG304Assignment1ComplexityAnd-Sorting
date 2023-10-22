@@ -7,31 +7,46 @@ import java.util.Comparator;
 
 import shape.*;
 
-// Sergei's imports
 import java.util.Scanner;
 import java.io.File;
-// import 
+// import java.io.FileNotFoundException;
 
 public class App {
     public static void main(String[] args) {
-        // scanner 
-        Scanner consoleScanner = new Scanner(System.in);
+        Scanner consoleScanner = new Scanner(System.in); // open scanner 
+
+        String fileName = ""; // file name
+
+        // Parse command line arguments
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].equals("-f")) {
+                fileName = args[i + 1];
+            } else if (args[i].equals("-t")) {
+
+            } else if (args[i].equals("-s")) {
+                
+            }
+        }
+        
+        System.out.println("File name: " + fileName);
 
 
 
         try {
-            File file = new File("./src/application/resources/test1.txt");
-            Scanner fileScanner = new Scanner(file);
+            File file1 = new File("./src/application/resources/test1.txt"); // file1
+            Scanner file1Scanner = new Scanner(file1); // scan file1
+            file1Scanner.close(); // close file1 scanner
+
+
+
             
-
-
-
-
-
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-        // read file
+
+
+
+
         // string float float
 
         
@@ -79,6 +94,8 @@ public class App {
         // Collections.sort(shapes, comparator);
 
         // close scanner
-        scanner.close();
+        consoleScanner.close();
+        
+        
     }
 }
