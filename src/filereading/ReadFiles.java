@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class ReadFiles {
-    public static void ReadFile(File file1) {
+    public static void ReadFile(File fileToRead) {
 
         // shape array lists
         ArrayList<String> shapeList = new ArrayList<String>(); // all shapes
@@ -18,7 +18,7 @@ public class ReadFiles {
         ArrayList<String> octagonalPrismList = new ArrayList<String>();
 
         // read file
-        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file1))) {
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(fileToRead))) {
             String line;
             while ((line = reader.readLine()) != null) {   
                 String[] elements = line.split(" ");

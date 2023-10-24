@@ -79,8 +79,8 @@ public class App {
         }
         
         // READ FILE
-        File file1 = new File("./src/application/resources/test1.txt"); // file1
-        ReadFiles.ReadFile(file1);
+        File file = new File("./src/application/resources/test1.txt"); // file1
+        ReadFiles.ReadFile(file);
 
         Cone cone = new Cone(674.2435, 652.1534);
         Cylinder cylinder = new Cylinder(9431.453, 4450.123);
