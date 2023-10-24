@@ -3,14 +3,13 @@ package application;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
+import java.io.File;
 
 import shape.*;
+import filereading.ReadFiles;
 
-import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.File;
 // import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 
 public class App {
     public static void main(String[] args) {
@@ -79,82 +78,9 @@ public class App {
             }
         }
         
-        // file read
+        // READ FILE
         File file1 = new File("./src/application/resources/test1.txt"); // file1
-
-        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file1))) {
-            
-            // shape array lists
-            ArrayList<String> shapeList = new ArrayList<String>(); // all shapes
-
-            ArrayList<String> cylinderList = new ArrayList<String>(); 
-            ArrayList<String> coneList = new ArrayList<String>();
-            ArrayList<String> pyramidList = new ArrayList<String>();
-            ArrayList<String> triangularPrismList = new ArrayList<String>();
-            ArrayList<String> squarePrismList = new ArrayList<String>();
-            ArrayList<String> pentagonalPrismList = new ArrayList<String>();
-            ArrayList<String> octagonalPrismList = new ArrayList<String>();
-
-            String line;
-            while ((line = reader.readLine()) != null) {   
-                String[] elements = line.split(" ");
-                for (String element1 : elements) {
-                    shapeList.add(element1);
-                }
-            }
-            shapeList.remove(0); // removes shape count integer from beginning of file  -- NEED THIS CODE
-
-            // sort file1 
-            for (int i = 0; i < shapeList.size() - 2; i++) {                
-                switch (shapeList.get(i)) {
-                    case "Cone":
-                        coneList.add(shapeList.get(i));
-                        coneList.add(shapeList.get(i + 1));
-                        coneList.add(shapeList.get(i + 2));
-                        break;
-                    case "Cylinder":
-                        cylinderList.add(shapeList.get(i));
-                        cylinderList.add(shapeList.get(i + 1));
-                        cylinderList.add(shapeList.get(i + 2));
-                        break;
-                    case "Pyramid":
-                        pyramidList.add(shapeList.get(i));
-                        pyramidList.add(shapeList.get(i + 1));
-                        pyramidList.add(shapeList.get(i + 2));
-                        break;
-                    case "TriangularPrism":
-                        triangularPrismList.add(shapeList.get(i));
-                        triangularPrismList.add(shapeList.get(i + 1));
-                        triangularPrismList.add(shapeList.get(i + 2));
-                        break;
-                    case "SquarePrism":
-                        squarePrismList.add(shapeList.get(i));
-                        squarePrismList.add(shapeList.get(i + 1));
-                        squarePrismList.add(shapeList.get(i + 2));
-                        break;
-                    case "PentagonalPrism":
-                        pentagonalPrismList.add(shapeList.get(i));
-                        pentagonalPrismList.add(shapeList.get(i + 1));
-                        pentagonalPrismList.add(shapeList.get(i + 2));
-                        break;
-                    case "OctagonalPrism":
-                        octagonalPrismList.add(shapeList.get(i));
-                        octagonalPrismList.add(shapeList.get(i + 1));
-                        octagonalPrismList.add(shapeList.get(i + 2));
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            int totalSize = coneList.size() + cylinderList.size() + pyramidList.size() + squarePrismList.size() + triangularPrismList.size() + pentagonalPrismList.size() + octagonalPrismList.size();
-            System.out.println("Total size: " + totalSize);
-            System.out.println("shape list size: " + shapeList.size());
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-
+        ReadFiles.ReadFile(file1);
 
         Cone cone = new Cone(674.2435, 652.1534);
         Cylinder cylinder = new Cylinder(9431.453, 4450.123);
