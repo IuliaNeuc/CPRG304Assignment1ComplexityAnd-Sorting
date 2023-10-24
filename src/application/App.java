@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.File;
 // import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 
 public class App {
     public static void main(String[] args) {
@@ -79,35 +80,76 @@ public class App {
         }
         
         // file read
-        File file1 = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyfor1.txt"); // proj file
-        // File file1 = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyNameBIG.txt"); // proj file
-        // File file1 = new File("./src/application/resources/test1.txt"); // file1
+        File file1 = new File("./src/application/resources/test1.txt"); // file1
 
         try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file1))) {
-            Scanner file1Scanner = new Scanner(file1); // scan file1
-            file1Scanner.useDelimiter(" "); // set delimiter
-            ArrayList<String> file1Data = new ArrayList<String>(); // file1 lines
             
-            // read file1
-            while (file1Scanner.hasNext()) {
-                String line = file1Scanner.next(); // read token
-                file1Data.add(line); // add token to file1 data
-                //String[] tokenArray = line.split(" "); // set array delimiter
-            }
-            file1Scanner.close(); // close file1 scanner
+            // shape array lists
+            ArrayList<String> shapeList = new ArrayList<String>(); // all shapes
 
-            // print file1 data
-            int length2 = file1Data.size(); // get file1Data length
-            for (int i = 0; i < length2; i++) {
-                System.out.println(file1Data.get(i)); // print file1 data
-            }
-            
-            
-            System.out.println("first element: " + file1Data.get(0)); // test output
-            file1Data.remove(0); // remove first element for object creation -- NEED THIS CODE
-            System.out.println("first element: " + file1Data.get(0)); // test output
-            
+            ArrayList<String> cylinderList = new ArrayList<String>(); 
+            ArrayList<String> coneList = new ArrayList<String>();
+            ArrayList<String> pyramidList = new ArrayList<String>();
+            ArrayList<String> triangularPrismList = new ArrayList<String>();
+            ArrayList<String> squarePrismList = new ArrayList<String>();
+            ArrayList<String> pentagonalPrismList = new ArrayList<String>();
+            ArrayList<String> octagonalPrismList = new ArrayList<String>();
 
+            String line;
+            while ((line = reader.readLine()) != null) {   
+                String[] elements = line.split(" ");
+                for (String element1 : elements) {
+                    shapeList.add(element1);
+                }
+            }
+            shapeList.remove(0); // removes shape count integer from beginning of file  -- NEED THIS CODE
+
+            // sort file1 
+            for (int i = 0; i < shapeList.size() - 2; i++) {                
+                switch (shapeList.get(i)) {
+                    case "Cone":
+                        coneList.add(shapeList.get(i));
+                        coneList.add(shapeList.get(i + 1));
+                        coneList.add(shapeList.get(i + 2));
+                        break;
+                    case "Cylinder":
+                        cylinderList.add(shapeList.get(i));
+                        cylinderList.add(shapeList.get(i + 1));
+                        cylinderList.add(shapeList.get(i + 2));
+                        break;
+                    case "Pyramid":
+                        pyramidList.add(shapeList.get(i));
+                        pyramidList.add(shapeList.get(i + 1));
+                        pyramidList.add(shapeList.get(i + 2));
+                        break;
+                    case "TriangularPrism":
+                        triangularPrismList.add(shapeList.get(i));
+                        triangularPrismList.add(shapeList.get(i + 1));
+                        triangularPrismList.add(shapeList.get(i + 2));
+                        break;
+                    case "SquarePrism":
+                        squarePrismList.add(shapeList.get(i));
+                        squarePrismList.add(shapeList.get(i + 1));
+                        squarePrismList.add(shapeList.get(i + 2));
+                        break;
+                    case "PentagonalPrism":
+                        pentagonalPrismList.add(shapeList.get(i));
+                        pentagonalPrismList.add(shapeList.get(i + 1));
+                        pentagonalPrismList.add(shapeList.get(i + 2));
+                        break;
+                    case "OctagonalPrism":
+                        octagonalPrismList.add(shapeList.get(i));
+                        octagonalPrismList.add(shapeList.get(i + 1));
+                        octagonalPrismList.add(shapeList.get(i + 2));
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            int totalSize = coneList.size() + cylinderList.size() + pyramidList.size() + squarePrismList.size() + triangularPrismList.size() + pentagonalPrismList.size() + octagonalPrismList.size();
+            System.out.println("Total size: " + totalSize);
+            System.out.println("shape list size: " + shapeList.size());
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
