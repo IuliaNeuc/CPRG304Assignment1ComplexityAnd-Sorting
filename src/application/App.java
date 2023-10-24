@@ -11,7 +11,8 @@ import java.io.File;
 // import java.io.FileNotFoundException;
 
 public class App {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
+
         Scanner consoleScanner = new Scanner(System.in); // open scanner 
 
         String fileName = ""; // file name
@@ -87,11 +88,28 @@ public class App {
         try {
             File file1 = new File("./src/application/resources/test1.txt"); // file1
             Scanner file1Scanner = new Scanner(file1); // scan file1
+            ArrayList<String> file1Data = new ArrayList<String>(); // file1 lines
+            
+            // read file1
+            while (file1Scanner.hasNextLine()) {
+                String line = file1Scanner.nextLine();
+                String[] tokens = line.split(" ");
+                
+                for (String token : tokens) {
+                    file1Data.add(token);
+                }
+        
+                
+            }
             file1Scanner.close(); // close file1 scanner
 
+            // print file1 data
+            for (String data : file1Data) {
+                System.out.println(data);
+            }
 
 
-            
+
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
