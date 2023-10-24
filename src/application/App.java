@@ -79,85 +79,82 @@ public class App {
         }
         
         // file read
-        
-        File file1 = new File("./src/application/resources/test1.txt"); // file1
+        File file1 = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyfor1.txt"); // proj file
+        // File file1 = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyNameBIG.txt"); // proj file
+        // File file1 = new File("./src/application/resources/test1.txt"); // file1
 
         try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file1))) {
-            
             Scanner file1Scanner = new Scanner(file1); // scan file1
-            
+            file1Scanner.useDelimiter(" "); // set delimiter
             ArrayList<String> file1Data = new ArrayList<String>(); // file1 lines
             
             // read file1
             while (file1Scanner.hasNext()) {
-                String line = file1Scanner.next(); // read line
-                String[] element = line.split(" "); // split line
-                
-                for (String element1 : element) {
-                    file1Data.add(element1); // add line to file1 data
-                }
+                String line = file1Scanner.next(); // read token
+                file1Data.add(line); // add token to file1 data
+                //String[] tokenArray = line.split(" "); // set array delimiter
             }
             file1Scanner.close(); // close file1 scanner
-            for (String data : file1Data) {
-                System.out.println(data); // print file1 data
 
+            // print file1 data
+            int length2 = file1Data.size(); // get file1Data length
+            for (int i = 0; i < length2; i++) {
+                System.out.println(file1Data.get(i)); // print file1 data
             }
+            
+            
+            System.out.println("first element: " + file1Data.get(0)); // test output
+            file1Data.remove(0); // remove first element for object creation -- NEED THIS CODE
+            System.out.println("first element: " + file1Data.get(0)); // test output
+            
+
+
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
 
 
+        Cone cone = new Cone(674.2435, 652.1534);
+        Cylinder cylinder = new Cylinder(9431.453, 4450.123);
 
+        ArrayList<Shape> shapes = new ArrayList<Shape>();
+        shapes.add(cylinder);
+        shapes.add(cone);
 
-        // string float float
+        Collections.sort(shapes);
+        for (Shape l : shapes) {
+            System.out.println(l);
+        }
+
+        Comparator<Shape> comparator = new Comparator<Shape>() {
+            @Override
+            public int compare(Shape s1, Shape s2) {
+                double area1 = s1.calcBaseArea();
+                double area2 = s2.calcBaseArea();
+                if (area1 < area2) {
+                    return -1;
+                } else if (area1 > area2) {
+                    return 1;
+                } else {
+                    double volume1 = s1.calcVolume();
+                    double volume2 = s2.calcVolume();
+                    if (volume1 < volume2) {
+                        return -1;
+                    } else if (volume1 > volume2) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }
+            }
+        };
+        Collections.sort(shapes, comparator);
 
         
+        consoleScanner.close(); // close scanner
+    }
 
+    private static void method1() {
 
-
-
-
-
-
-        // Cone cone = new Cone(674.2435, 652.1534);
-        // Cylinder cylinder = new Cylinder(9431.453, 4450.123);
-
-        // ArrayList<Shape> shapes = new ArrayList<Shape>();
-        // shapes.add(cylinder);
-        // shapes.add(cone);
-
-        // Collections.sort(shapes);
-        // for (Shape l : shapes) {
-        //     System.out.println(l);
-        // }
-
-        // Comparator<Shape> comparator = new Comparator<Shape>() {
-        //     @Override
-        //     public int compare(Shape s1, Shape s2) {
-        //         double area1 = s1.calcBaseArea();
-        //         double area2 = s2.calcBaseArea();
-        //         if (area1 < area2) {
-        //             return -1;
-        //         } else if (area1 > area2) {
-        //             return 1;
-        //         } else {
-        //             double volume1 = s1.calcVolume();
-        //             double volume2 = s2.calcVolume();
-        //             if (volume1 < volume2) {
-        //                 return -1;
-        //             } else if (volume1 > volume2) {
-        //                 return 1;
-        //             } else {
-        //                 return 0;
-        //             }
-        //         }
-        //     }
-        // };
-        // Collections.sort(shapes, comparator);
-
-        // close scanner
-        consoleScanner.close();
-        
-        
     }
 }
