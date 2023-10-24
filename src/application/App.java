@@ -7,6 +7,7 @@ import java.util.Comparator;
 import shape.*;
 
 import java.util.Scanner;
+import java.io.BufferedReader;
 import java.io.File;
 // import java.io.FileNotFoundException;
 
@@ -77,41 +78,30 @@ public class App {
             }
         }
         
-        System.out.println("File name: " + fileName);
-
-
-
-
-
-
         // file read
-        try {
+        
+        File file1 = new File("./src/application/resources/test1.txt"); // file1
+
+        try (BufferedReader reader = new BufferedReader(new java.io.FileReader(file1))) {
             
-            File file1 = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyfor1.txt"); // proj file
-            // File file1 = new File("./src/application/resources/test1.txt"); // file1
             Scanner file1Scanner = new Scanner(file1); // scan file1
+            
             ArrayList<String> file1Data = new ArrayList<String>(); // file1 lines
             
             // read file1
-            while (file1Scanner.hasNextLine()) {
-                String line = file1Scanner.nextLine();
-                String[] tokens = line.split(" ");
+            while (file1Scanner.hasNext()) {
+                String line = file1Scanner.next(); // read line
+                String[] element = line.split(" "); // split line
                 
-                for (String token : tokens) {
-                    file1Data.add(token);
+                for (String element1 : element) {
+                    file1Data.add(element1); // add line to file1 data
                 }
-        
-                
             }
             file1Scanner.close(); // close file1 scanner
-
-            // print file1 data
             for (String data : file1Data) {
-                System.out.println(data);
+                System.out.println(data); // print file1 data
+
             }
-
-
-
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
