@@ -86,7 +86,9 @@ public class App {
 
         // file read
         try {
-            File file1 = new File("./src/application/resources/test1.txt"); // file1
+            
+            File file1 = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyfor1.txt"); // proj file
+            // File file1 = new File("./src/application/resources/test1.txt"); // file1
             Scanner file1Scanner = new Scanner(file1); // scan file1
             ArrayList<String> file1Data = new ArrayList<String>(); // file1 lines
             
