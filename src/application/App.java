@@ -15,15 +15,64 @@ public class App {
         Scanner consoleScanner = new Scanner(System.in); // open scanner 
 
         String fileName = ""; // file name
+        boolean isDescending = false;
+        boolean isVerbose = false;
+        String sortAlgorithm = "";
 
         // Parse command line arguments
         for (int i = 0; i < args.length; i++) {
-            if (args[i].equals("-f")) {
-                fileName = args[i + 1];
-            } else if (args[i].equals("-t")) {
+            String arg = args[i].toLowerCase();
+    
+            if (arg.equals("-f")) {
 
-            } else if (args[i].equals("-s")) {
-                
+                fileName = args[i + 1];
+
+            } else if (arg.equals("-t")) {
+
+
+
+                String type = args[i + 1].toLowerCase();
+    
+                if (type.equals("v")) {
+                    isVerbose = true;
+                } else if (type.equals("h")) {
+                    // Sort by height
+                    sortAlgorithm = "height";
+                } else if (type.equals("a")) {
+                    // Sort by base area
+                    sortAlgorithm = "base area";
+                }
+
+
+
+            } else if (arg.equals("-s")) {
+
+
+
+                String type = args[i + 1].toLowerCase();
+    
+                if (type.equals("b")) {
+                    // Bubble sort
+                    // sortAlgorithm = "bubble";
+                } else if (type.equals("s")) {
+                    // Selection sort
+                    // sortAlgorithm = "selection";
+                } else if (type.equals("i")) {
+                    // Insertion sort
+                    // sortAlgorithm = "insertion";
+                } else if (type.equals("m")) {
+                    // Merge sort
+                    // sortAlgorithm = "merge";
+                } else if (type.equals("q")) {
+                    // Quick sort
+                    // sortAlgorithm = "quick";
+                } else if (type.equals("z")) {
+                    // Your choice of sorting algorithm
+                    // sortAlgorithm = "your choice";
+                }
+
+
+
             }
         }
         
@@ -31,6 +80,10 @@ public class App {
 
 
 
+
+
+
+        // file read
         try {
             File file1 = new File("./src/application/resources/test1.txt"); // file1
             Scanner file1Scanner = new Scanner(file1); // scan file1
