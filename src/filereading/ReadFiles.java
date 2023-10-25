@@ -15,13 +15,13 @@ public class ReadFiles {
             // read first line (only works if there is one line in the file)
             String line = reader.readLine(); // read line
             shapeArray = line.split(" "); // split line into elements and add to shapeArray
-            elementCount = (Integer.parseInt(shapeArray[0]) * 3) + 1; // convert first element of shapeArray to int and multiply by 3 to get total number of elements
-            
+            elementCount = (Integer.parseInt(shapeArray[0]) * 3) + 1 ; // convert first element of shapeArray to int and multiply by 3 to get number of elements in shapeArray
+
             // test print statements
-            System.out.println("Object count: " + elementCount);
-            for (int i = 0; i < elementCount; i++) {
-                System.out.println("shapeArray: " + shapeArray[i]);
-            }
+            System.out.println("\nelementCount 1: " + elementCount);
+            // for (int i = 0; i < elementCount; i++) {
+            //     System.out.println("shapeArray: " + shapeArray[i]);
+            // }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -35,7 +35,6 @@ public class ReadFiles {
         int pentagonalPrismCount = 0;
         int octagonalPrismCount = 0;
 
-        System.out.println("test1");
         // count number of each shape
         for (int i = 0; i < elementCount; i++) { 
             switch (shapeArray[i]) {
@@ -64,8 +63,16 @@ public class ReadFiles {
                     break;
             }
         }
+
         System.out.println("cone count: " + coneCount);
         System.out.println("cylinder count: " + cylinderCount);
+        System.out.println("pyramid count: " + pyramidCount);
+        System.out.println("triangularPrism count: " + triangularPrismCount);
+        System.out.println("squarePrism count: " + squarePrismCount);
+        System.out.println("pentagonalPrism count: " + pentagonalPrismCount);
+        System.out.println("octagonalPrism count: " + octagonalPrismCount);
+        int totalCount = coneCount + cylinderCount + pyramidCount + triangularPrismCount + squarePrismCount + pentagonalPrismCount + octagonalPrismCount;
+        System.out.println("total count: " + totalCount);
 
         // create shape arrays with correct size - REMOVE * 3 WHEN CLASSES IMPLEMENTED
         String[] coneArray = new String[coneCount * 3];
@@ -84,10 +91,9 @@ public class ReadFiles {
         int pentagonalPrismCount2 = 0;
         int octagonalPrismCount2 = 0;
 
-        System.out.println("test2: " + shapeArray.length);
         // sort shapes into respective arrays
-        for (int i = 0; i < elementCount; i++) { 
-            System.out.println("shape array test: " + shapeArray[i]);
+        for (int i = 0; i < (elementCount); i++) { 
+
             switch (shapeArray[i]) {
                 case "Cone":
                     coneArray[coneCount2] = shapeArray[i];
@@ -108,9 +114,9 @@ public class ReadFiles {
                     pyramidCount2 += 3; // REMOVE * 3 WHEN CLASSES IMPLEMENTED          
                     break;
                 case "TriangularPrism":
-                    pyramidArray[triangularPrismCount2] = shapeArray[i];
-                    pyramidArray[triangularPrismCount2 + 1] = shapeArray[i + 1];
-                    pyramidArray[triangularPrismCount2 + 2] = shapeArray[i + 2];
+                    triangularPrismArray[triangularPrismCount2] = shapeArray[i];
+                    triangularPrismArray[triangularPrismCount2 + 1] = shapeArray[i + 1];
+                    triangularPrismArray[triangularPrismCount2 + 2] = shapeArray[i + 2];
                     triangularPrismCount2 += 3; // REMOVE * 3 WHEN CLASSES IMPLEMENTED
                     break;
                 case "SquarePrism":
@@ -136,17 +142,10 @@ public class ReadFiles {
             }
         }
 
-        for (int i = 0; i < coneArray.length; i++) {
-            System.out.println("coneArray: " + coneArray[i]);
-        }
-        for (int i = 0; i < cylinderArray.length; i++) {
-            System.out.println("cylinderArray: " + cylinderArray[i]);
-        }
-
         // test print statements
         int totalSize = coneArray.length + cylinderArray.length + pyramidArray.length + triangularPrismArray.length + squarePrismArray.length + pentagonalPrismArray.length + octagonalPrismArray.length;
-        System.out.println("Sorted Arrays size: " + totalSize);
-        System.out.println("shapeArray size: " + shapeArray.length);
+        System.out.println("\nSorted Arrays size: " + totalSize / 3);
+        System.out.println("shapeArray size: " + shapeArray.length / 3 + "\n");
         
     }   
 }

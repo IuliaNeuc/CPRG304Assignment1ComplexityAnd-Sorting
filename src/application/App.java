@@ -79,8 +79,13 @@ public class App {
         }
         
         // READ FILE
-        File file = new File("./src/application/resources/test1.txt"); // file1
+        //File file = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyfor1.txt"); // proj file
+        File file = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyNameBIG.txt"); // proj file
+        //File file = new File("./src/application/resources/test1.txt"); // file1
         ReadFiles.ReadFile(file);
+        
+
+
 
         Cone cone = new Cone(674.2435, 652.1534);
         Cylinder cylinder = new Cylinder(9431.453, 4450.123);
@@ -120,9 +125,5 @@ public class App {
 
         
         consoleScanner.close(); // close scanner
-    }
-
-    private static void method1() {
-
     }
 }
