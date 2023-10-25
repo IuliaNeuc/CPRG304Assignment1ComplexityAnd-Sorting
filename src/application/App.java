@@ -79,17 +79,30 @@ public class App {
         }
         
         // READ FILE
-        //File file = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyfor1.txt"); // proj file
-        File file = new File("/home/sam137/Sait/Y2S3/OOP3/asn1files/asn1datafiles/polyNameBIG.txt"); // proj file
-        //File file = new File("./src/application/resources/test1.txt"); // file1
-        ReadFiles.ReadFile(file);
+        File file = new File("./src/application/resources/test1.txt"); // file path of file to read 
+        Object[] shapeObjectArray = (Object[]) ReadFiles.ReadFile(file); // read file and store shape arrays as objects in object array
         
-
-
-
+        // cast object[n] in object array to shape array 
+        Shape[] shapeArray = (Shape[]) shapeObjectArray[0]; 
+        Cone[] coneArray = (Cone[]) shapeObjectArray[1];
+        Cylinder[] cylinderArray = (Cylinder[]) shapeObjectArray[2];
+        Pyramid[] pyramidArray = (Pyramid[]) shapeObjectArray[3];
+        TriangularPrism[] triangularPrismArray = (TriangularPrism[]) shapeObjectArray[4];
+        SquarePrism[] squarePrismArray = (SquarePrism[]) shapeObjectArray[5]; 
+        PentagonalPrism[] pentagonalPrismArray = (PentagonalPrism[]) shapeObjectArray[6];
+        OctagonalPrism[] octagonalPrismArray = (OctagonalPrism[]) shapeObjectArray[7];
+        
         Cone cone = new Cone(674.2435, 652.1534);
         Cylinder cylinder = new Cylinder(9431.453, 4450.123);
 
+
+
+
+
+
+
+
+        
         ArrayList<Shape> shapes = new ArrayList<Shape>();
         shapes.add(cylinder);
         shapes.add(cone);
