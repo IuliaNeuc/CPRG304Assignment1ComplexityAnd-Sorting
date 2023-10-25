@@ -45,15 +45,12 @@ public class App {
         switch (compareType) { // check user input for errors and set shape dimension to compare if no errors
             case "h": // Height
                 compareDimension = "h";
-
                 break;
             case "v":
                 compareDimension = "v"; // Volume
-                
                 break;
             case "a": // Base area
                 compareDimension = "a";
-                
                 break;
             default: // check for invalid input
                 System.out.println("\nError: Invalid compare type.\nPlease use one of the following for -t: h, v, a.");
@@ -64,27 +61,21 @@ public class App {
         switch (sortingAlgorithm) { // check user input for errors and select the algorithm if no errors
             case "b":
                 selectedAlgorithm = "b"; // Bubble sort
-                
                 break;
             case "s":
                 selectedAlgorithm = "s"; // Selection sort
-                
                 break;
             case "i":
                 selectedAlgorithm = "i"; // Insertion sort
-                
                 break;
             case "m":
                 selectedAlgorithm = "m"; // Merge sort
-                
                 break;
             case "q":
                 selectedAlgorithm = "q"; // Quick sort
-                
                 break;
             case "z":
                 selectedAlgorithm = "z"; // custom sort
-                
                 break;
             default: // check for invalid input
                 System.out.println("\nError: Invalid sorting algorithm.\nPlease use one of the following for -s: b, s, i, m, q, z.");
