@@ -18,7 +18,7 @@ public class App {
         String filePath = ""; // file name
         String compareType = ""; // compare type
         String sortingAlgorithm = ""; // sorting algorithm
-
+        
         try {
             for (int i = 0; i < args.length; i++) { // parse command line arguments
                 switch (args[i].toLowerCase()) { // convert to lowercase to make args case insensitive
@@ -32,65 +32,70 @@ public class App {
                         sortingAlgorithm = args[i + 1];
                         break;
                     default:
-                        System.out.println("Error: Invalid argument. Please use the format: -f <file location> -t <compare type> -s <algorithm>.\nTry adding a space after arguments.\nThe order of the arguments does not matter.");
                         break;
                 }
             }
+        if (filePath == "" || compareType == "" || sortingAlgorithm == "") { // check if all arguments are populated
+            System.out.println("\nError: Invalid argument.\nFormat: -f <file location> -t <compare type> -s <algorithm>.\nTry adding a space after each argument.\nAll arguments must be populated.\nThe order of the arguments does not matter.");
+        }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
 
         String compareDimension = ""; // compare dimension
         switch (compareType) { // check user input for errors and set shape dimension to compare if no errors
-            case "h":
+            case "h": // Height
                 compareDimension = "h";
-                System.out.println("Height");
+
                 break;
             case "v":
-                compareDimension = "v";
-                System.out.println("Volume");
+                compareDimension = "v"; // Volume
+                
                 break;
-            case "a":
+            case "a": // Base area
                 compareDimension = "a";
-                System.out.println("Base area");
+                
                 break;
-            default:
-                System.out.println("Error: Invalid compare type. Please use one of the following: base, volume.");
+            default: // check for invalid input
+                System.out.println("\nError: Invalid compare type.\nPlease use one of the following for -t: h, v, a.");
                 break;
         }
 
         String selectedAlgorithm = ""; // selected algorithm
         switch (sortingAlgorithm) { // check user input for errors and select the algorithm if no errors
             case "b":
-                selectedAlgorithm = "b";
-                System.out.println("Bubble sort");
+                selectedAlgorithm = "b"; // Bubble sort
+                
                 break;
             case "s":
-                selectedAlgorithm = "s";
-                System.out.println("Selection sort");
+                selectedAlgorithm = "s"; // Selection sort
+                
                 break;
             case "i":
-                selectedAlgorithm = "i";
-                System.out.println("Insertion sort");
+                selectedAlgorithm = "i"; // Insertion sort
+                
                 break;
             case "m":
-                selectedAlgorithm = "m";
-                System.out.println("Merge sort");
+                selectedAlgorithm = "m"; // Merge sort
+                
                 break;
             case "q":
-                selectedAlgorithm = "q";
-                System.out.println("Quick sort");
+                selectedAlgorithm = "q"; // Quick sort
+                
                 break;
             case "z":
-                selectedAlgorithm = "z";
-                System.out.println("custom sort");
+                selectedAlgorithm = "z"; // custom sort
+                
                 break;
-            default:
-                System.out.println("Error: Invalid sorting algorithm. Please use one of the following: bubble, insertion, selection, merge, quick.");
+            default: // check for invalid input
+                System.out.println("\nError: Invalid sorting algorithm.\nPlease use one of the following for -s: b, s, i, m, q, z.");
                 break;
         }
 
-        // READ FILE
+        // welcome message
+        System.out.println("\nComplexity and Sorting Program\nFile path: " + filePath + "\nCompare type: " + compareDimension + "\nSorting algorithm: " + selectedAlgorithm);
+
+        // FILE READ
         File file = new File(filePath); // file path from command line argument -f
         Object[] shapeObjectArray = (Object[]) ReadFiles.ReadFile(file); // read file and store shape arrays as objects in object array
         
