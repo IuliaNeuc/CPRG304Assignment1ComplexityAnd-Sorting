@@ -34,9 +34,9 @@ public class App {
                         break;
                 }
             }
-        if (filePath == "" || compareType == "" || sortingAlgorithm == "") { // check if all arguments are populated
-            System.out.println("\nError: Invalid argument.\nFormat: -f <file location> -t <compare type> -s <algorithm>.\nTry adding a space after each argument.\nAll arguments must be populated.\nThe order of the arguments does not matter.");
-        }
+            if (filePath == "" || compareType == "" || sortingAlgorithm == "") { // check if all arguments are populated
+                System.out.println("\nError: Invalid argument.\nFormat: -f <file location> -t <compare type> -s <algorithm>.\nTry adding a space after each argument.\nAll arguments must be populated.\nThe order of the arguments does not matter.");
+            }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -108,6 +108,7 @@ public class App {
         PentagonalPrism[] pentagonalPrismArray = (PentagonalPrism[]) shapeObjectArray[6];
         OctagonalPrism[] octagonalPrismArray = (OctagonalPrism[]) shapeObjectArray[7];
 
+        // test code for sorting
         Cone cone = new Cone(674.2435, 652.1534);
         Cylinder cylinder = new Cylinder(9431.453, 4450.123);
 
