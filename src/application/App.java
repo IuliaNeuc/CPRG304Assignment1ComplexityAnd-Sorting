@@ -1,9 +1,8 @@
 package application;
 
-import java.util.ArrayList;
+import java.util.ArrayList; // cannot use ArrayList
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Scanner;
 import java.io.File;
 
 import shape.*;
