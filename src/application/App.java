@@ -2,7 +2,6 @@ package application;
 
 import java.io.File;
 import shape.*;
-import filereading.ReadFiles;
 
 public class App {
     public static void main(String[] args) {
@@ -80,7 +79,8 @@ public class App {
         System.out.println("\nComplexity and Sorting Program\nFile path: " + filePath + "\nCompare type: " + compareDimension + "\nSorting algorithm: " + selectedAlgorithm);
 
         // FILE READ
-        File file = new File(filePath); // file path from command line argument -f
+        File file = new File("src/resources/test1.txt"); // TESTING FILE PATH
+        //File file = new File(filePath); // file path from command line argument -f
         Object[] shapeObjectArray = (Object[]) ReadFiles.ReadFile(file); // read file and store shape arrays as objects in object array
         
         // cast object[n] in object array to shape array 
@@ -93,6 +93,9 @@ public class App {
         PentagonalPrism[] pentagonalPrismArray = (PentagonalPrism[]) shapeObjectArray[6];
         OctagonalPrism[] octagonalPrismArray = (OctagonalPrism[]) shapeObjectArray[7];
 
+        for (int i = 0; i < shapeArray.length; i++) { // print unsorted array
+            System.out.println(shapeArray[i].toString());
+        }
     }
 }
 
