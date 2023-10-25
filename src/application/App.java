@@ -21,14 +21,14 @@ public class App {
         try {
             for (int i = 0; i < args.length; i++) { // parse command line arguments
                 switch (args[i].toLowerCase()) { // convert to lowercase to make args case insensitive
-                    case "-f": // set path to file
-                        filePath = args[i + 1];
+                    case "-f":
+                        filePath = args[i + 1]; // set path to file
                         break;
-                    case "-t": // select compare type
-                        compareType = args[i + 1];
+                    case "-t":
+                        compareType = args[i + 1]; // select compare type
                         break;
-                    case "-s": // select sorting algorithm
-                        sortingAlgorithm = args[i + 1];
+                    case "-s":
+                        sortingAlgorithm = args[i + 1]; // select sorting algorithm
                         break;
                     default:
                         break;
@@ -43,14 +43,14 @@ public class App {
 
         String compareDimension = ""; // compare dimension
         switch (compareType) { // check user input for errors and set shape dimension to compare if no errors
-            case "h": // Height
-                compareDimension = "h";
+            case "h":
+                compareDimension = "h"; // Height
                 break;
-            case "v":
+            case "v": 
                 compareDimension = "v"; // Volume
                 break;
-            case "a": // Base area
-                compareDimension = "a";
+            case "a":
+                compareDimension = "a"; // Base area
                 break;
             default: // check for invalid input
                 System.out.println("\nError: Invalid compare type.\nPlease use one of the following for -t: h, v, a.");
