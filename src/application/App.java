@@ -12,8 +12,6 @@ import java.io.File;
 import shape.*;
 import filereading.ReadFiles;
 
-// import java.io.FileNotFoundException;
-
 public class App {
     public static void main(String[] args) {
 
