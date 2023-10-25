@@ -1,3 +1,7 @@
+// I didn't want to delete the code here just in case. I just created the separate folders(CompareArea.java and CompareVolume.jav) for this code 
+// It is just more comfortable for us to organize the code. Lets keep the App.java just like an app driver where we will call
+//other methods here.
+
 package application;
 
 import java.util.ArrayList; // cannot use ArrayList
@@ -112,6 +116,7 @@ public class App {
         for (Shape l : shapes) {
             System.out.println(l);
         }
+    
 
         Comparator<Shape> comparator = new Comparator<Shape>() {
             @Override
