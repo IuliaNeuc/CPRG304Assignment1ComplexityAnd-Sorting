@@ -91,18 +91,19 @@ public class App {
         SquarePrism[] squarePrismArray = (SquarePrism[]) shapeObjectArray[5]; 
         PentagonalPrism[] pentagonalPrismArray = (PentagonalPrism[]) shapeObjectArray[6];
         OctagonalPrism[] octagonalPrismArray = (OctagonalPrism[]) shapeObjectArray[7];
+
         
+
+
+
+
+
+
+
         Cone cone = new Cone(674.2435, 652.1534);
         Cylinder cylinder = new Cylinder(9431.453, 4450.123);
 
-
-
-
-
-
-
-
-        
+        // cannot use ArrayList
         ArrayList<Shape> shapes = new ArrayList<Shape>();
         shapes.add(cylinder);
         shapes.add(cone);
