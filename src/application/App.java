@@ -9,7 +9,7 @@ public class App {
         // args for testing
         args = new String[6];
         args[0] = "-f";
-        args[1] = "src/resources/polyfor1.txt";
+        args[1] = "src/resources/polyfor1.txt"; // change name of .txt file to test different files in resources folder
         args[2] = "-t";
         args[3] = "h";
         args[4] = "-s";
