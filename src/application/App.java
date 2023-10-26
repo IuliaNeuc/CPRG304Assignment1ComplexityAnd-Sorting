@@ -5,6 +5,15 @@ import shape.*;
 
 public class App {
     public static void main(String[] args) {
+        
+        // args for testing
+        args = new String[6];
+        args[0] = "-f";
+        args[1] = "src/resources/test1.txt";
+        args[2] = "-t";
+        args[3] = "h";
+        args[4] = "-s";
+        args[5] = "b";
 
         // variables for command line arguments
         String filePath = ""; // file name
@@ -79,8 +88,7 @@ public class App {
         System.out.println("\nComplexity and Sorting Program\nFile path: " + filePath + "\nCompare type: " + compareDimension + "\nSorting algorithm: " + selectedAlgorithm);
 
         // FILE READ
-        File file = new File("src/resources/test1.txt"); // TESTING FILE PATH
-        //File file = new File(filePath); // file path from command line argument -f
+        File file = new File(filePath); // file path from command line argument -f
         Object[] shapeObjectArray = (Object[]) ReadFile.ReadFile(file); // read file and store shape arrays as objects in object array
         
         // cast object[n] in object array to shape array 
