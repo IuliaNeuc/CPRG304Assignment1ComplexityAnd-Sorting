@@ -21,6 +21,13 @@ public class App {
         args[4] = "-s";
         args[5] = "b";
 
+        //SHOULD WE USE THIS INSTEAD?
+        // for (int i = 0; i < 3; i++) {
+        //     if (args[i].substring(0, 2).equalsIgnoreCase("-f"))
+        //         fileName = args[i].substring(2, args[i].length());
+        //     if (args[i].substring(0, 2).equalsIgnoreCase("-t"))
+        //         type = args[i].substring(2, args[i].length());
+
         // variables for command line arguments
         String filePath = ""; // file name
         String compareType = ""; // compare type

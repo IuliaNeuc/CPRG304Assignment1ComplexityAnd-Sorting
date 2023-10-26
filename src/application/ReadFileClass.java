@@ -27,7 +27,7 @@ public class ReadFileClass {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-        
+         
         // create and add shape objects to shapeArray
         Shape[] shapeArray = new Shape[shapeCount]; // create shapeArray
         int shapeArrayIndex = 0; // index for adding shapes to shapeArray
