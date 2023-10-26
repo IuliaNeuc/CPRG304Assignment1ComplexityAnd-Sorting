@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class SelectionSort
 {
     //Selection sort using the natural ordering of elements - Comparable
-    public static <T extends Comparable<? super T>> void selectionSort(T[] array)    
+    public static <T extends Comparable<? super T>> void selectionSort(T[] array)
     {
         int x = array.length;
         
@@ -78,6 +78,3 @@ public class SelectionSort
         }
     }
 }
-
-
-
