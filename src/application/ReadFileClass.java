@@ -8,9 +8,9 @@ import shape.*;
 public class ReadFileClass {
     public static Shape[] ReadFile1(File fileToRead) {
 
-        String[] shapeElementArray = null; // all shapes
-        int elementCount = 0;
-        int shapeCount = 0;
+        String[] shapeElementArray = null; // store elements from text file
+        int shapeCount = 0; // number of shapes in text file
+        int elementCount = 0; // number of elements in text file
         
         // read file
         try (BufferedReader reader = new BufferedReader(new java.io.FileReader(fileToRead))) {
@@ -18,13 +18,14 @@ public class ReadFileClass {
             // read first line (only works if there is one line in the file)
             String line = reader.readLine(); // read line
             shapeElementArray = line.split(" "); // split line into elements and add to shapeArray
-            shapeCount = (Integer.parseInt(shapeElementArray[0])); // convert first element of shapeArray to int and multiply by 3 to get number of elements in shapeArray
-            elementCount = shapeCount * 3 + 1;
+            shapeCount = (Integer.parseInt(shapeElementArray[0])); // convert first element of shapeElementArray to int
+            elementCount = shapeCount * 3 + 1; // calculate number of elements in text file
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
         
-        Shape[] shapeArray = new Shape[shapeCount]; // create shape array
+        // create and add shape objects to shapeArray
+        Shape[] shapeArray = new Shape[shapeCount]; // create shapeArray
         int shapeArrayIndex = 0; // index for adding shapes to shapeArray
         for (int i = 0; i < (elementCount); i++) { // create shapes and add to shapeArray
             switch (shapeElementArray[i]) {
