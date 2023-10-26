@@ -1,7 +1,10 @@
 TESTING:
-make sure the cmd line args work for the compiled .jar file
+make sure the comand line args work for the compiled .jar file
 make sure error messages give the user enough info about proper format of cmd line args
+remove testing code before final compilation
 make sure everything works lol
+
+
 
 SUBMISSION:
 
