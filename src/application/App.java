@@ -107,5 +107,3 @@ public class App {
         }
     }
 }
-
-// proto1 test
