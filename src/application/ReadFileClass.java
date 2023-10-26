@@ -23,7 +23,7 @@ public class ReadFileClass {
             String line = reader.readLine(); // read line
             shapeElementArray = line.split(" "); // split line into elements and add to shapeArray
             shapeCount = (Integer.parseInt(shapeElementArray[0])); // convert first element of shapeElementArray to int
-            elementCount = shapeCount * 3 + 1; // calculate number of elements in text file
+            elementCount = (shapeCount * 3) + 1; // calculate number of elements in text file
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }

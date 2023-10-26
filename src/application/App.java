@@ -15,7 +15,7 @@ public class App {
         // args for testing
         args = new String[6];
         args[0] = "-f";
-        args[1] = "src/resources/polyfor1.txt"; // change name of .txt file to test different files in resources folder
+        args[1] = "src/resources/polyNameBIG.txt"; // change name of .txt file to test different files in resources folder
         args[2] = "-t";
         args[3] = "h";
         args[4] = "-s";
@@ -108,7 +108,8 @@ public class App {
         // SORTING ALGORITHM LOGIC GOES HERE ^^^^^^^^
         long endTime = System.currentTimeMillis(); // set current time
         long elapsedTime = endTime - startTime; // calculate elapsed time
-        
-        System.out.println("\nEXECUTION TIME: " + elapsedTime + " milliseconds"); // print elapsed time
+       
+        System.out.println("\nShape array length: " + shapeArray.length); // test code
+        System.out.println("\nEXECUTION TIME: " + elapsedTime + " milliseconds\n"); // print elapsed time
     }
 }
