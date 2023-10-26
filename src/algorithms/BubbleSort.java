@@ -23,65 +23,50 @@ public class BubbleSort
      */
      
     // Implementation of bubble sort for objects that implement the Comparable interface
-    public static <T extends Comparable<? super T>> void bubbleSort(T[] array)
+    public static <T extends Comparable<? super T>> void bubbleSort(T[] array, String compareType)
     {
-        int x = array.length;
-        if(x == 0) return; // if the array is empty, then no need to sort it
+        int arraySize = array.length;
+        compareType = "h"; // compare heights
 
-        long start, stop;
-
-        start = System.currentTimeMillis();// Record time for measuring time complexity
-        
         // outer loop that wil iterate through the array from the beginning to the second to last element
-        for(int i =0; i < x-1; i++)
+        for(int i = 0; i < arraySize - 1; i++)
         {
             //Inner loop that will iterate through the array from the beginning to the unsorted portion
-            for(int j = 0; j < x-1-i; j++)
+            for(int j = 0; j < arraySize - 1 - i; j++)
             {
                 //compare adjacent elements in the array
-                int res = array[j].compareTo(array[i+1]);
+                int res = array[j].compareTo(array[i + 1]);
                 // if the current element is greater than the next one, swap them
                 if(res<0)
                 {
                     T temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
         }
-
-        stop = System.currentTimeMillis(); // record the stop time
-        System.out.println("Time complexity of: " + (stop - start));
-
     }
     
     //Implementation of the bubble sort with a custom comparator 
-    public static <T> void  bubbleSort(T[] array, Comparator<? super T> c)
-    {
-        int x = array.length;
-        long start, stop;
-
-        start = System.currentTimeMillis(); //  record the start time for measuring time complexity
+    public static <T> void  bubbleSort(T[] array, Comparator<? super T> c) {
+        int arraySize = array.length;
 
         // outer loop that wil iterate through the array from the beginning to the second to last element
-        for(int i = 0; i < x-1; i++)
+        for(int i = 0; i < arraySize - 1; i++)
         {
             //Inner loop that will iterate through the array from the beginning to the unsorted portion
-            for (int j = 0; j < x-1-i; j++)
+            for (int j = 0; j < arraySize - 1 - i; j++)
             {
                 //compare adjacent elements using the provided comparator
-                int res = c.compare(array[j], array[j+1]);
+                int res = c.compare(array[j], array[j + 1]);
                 //If current element greater than the next one, swap them.
                 if (res < 0 )
                 {
                     T temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
         }
-
-        stop = System.currentTimeMillis();//Record the stop time
-        System.out.println("Time complexity of: " + (stop - start));
     }
 }

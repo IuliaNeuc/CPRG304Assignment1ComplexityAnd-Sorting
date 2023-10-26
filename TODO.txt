@@ -8,17 +8,14 @@ make sure everything works lol
 
 SUBMISSION:
 
-1. An executable Java Archive file (.jar) for your sorting application called Sort.jar.
+1. An executable Java Archive file (.jar) for your sorting application called Sort.jar. DONE
 
 2. A readMe.txt file with instructions on how to install and use your sorting program.
-???
 
 3. The project should have completed javadoc using the “-private” option when generated. Place the output in the doc directory of the project.
 
-4. A folder containing the complete Eclipse project directory.
-   At the root of the project directory, include a readMe.txt file describing the completeness of the assignment (as a percentage) and a list of known deficiencies and/or missing functionalities.
+4. At the root of the project directory, include a readMe.txt file describing the completeness of the assignment (as a percentage) and a list of known deficiencies and/or missing functionalities.
    Note: Do NOT include the test data files in your upload (e.g., polyNameBIG.txt)
--- I don't think eclipse matters too much here as long as the .jar file is executable. We shall see.
 
 5. A mySort.txt file that provides a detailed description of the sorting algorithm of your choice along with its complexity analysis. 
    Your analysis should include the steps of the algorithm in pseudocode, with the number of operations performed in each step. Make sure to write this in your own words and DO NOT copy or rephrase from another source.

@@ -12,26 +12,30 @@ import shape.*;
 public class App {
     public static void main(String[] args) {
         
-        // args for testing
+        //args for testing
         args = new String[6];
         args[0] = "-f";
-        args[1] = "src/resources/polyNameBIG.txt"; // change name of .txt file to test different files in resources folder
+        args[1] = "src/resources/polyfor1.txt"; // change name of .txt file to test different files in resources folder
         args[2] = "-t";
         args[3] = "h";
         args[4] = "-s";
         args[5] = "b";
 
-        //SHOULD WE USE THIS INSTEAD?
-        // for (int i = 0; i < 3; i++) {
-        //     if (args[i].substring(0, 2).equalsIgnoreCase("-f"))
-        //         fileName = args[i].substring(2, args[i].length());
-        //     if (args[i].substring(0, 2).equalsIgnoreCase("-t"))
-        //         type = args[i].substring(2, args[i].length());
-
         // variables for command line arguments
         String filePath = ""; // file name
         String compareType = ""; // compare type
         String sortingAlgorithm = ""; // sorting algorithm
+
+        //SHOULD WE USE THIS INSTEAD?
+        // for (int i = 0; i < 3; i++) {
+        //     if (args[i].substring(0, 2).equalsIgnoreCase("-f")) {
+        //         filePath = args[i].substring(2, args[i].length());
+        //     }
+        //     if (args[i].substring(0, 2).equalsIgnoreCase("-t")) {
+        //         compareType = args[i].substring(2, args[i].length());
+        //     }
+        // }
+        
         
         try {
             for (int i = 0; i < args.length; i++) { // parse command line arguments
@@ -52,7 +56,7 @@ public class App {
             if (filePath == "" || compareType == "" || sortingAlgorithm == "") { // check if all arguments are populated
                 System.out.println("\nError: Invalid argument.\nFormat: -f <file location> -t <compare type> -s <algorithm>.\nTry adding a space after each argument.\nAll arguments must be populated.\nThe order of the arguments does not matter.");
             }
-        } catch (Exception e) {
+        } catch (Exception e) { // NEEDS TO THROW SOMETHINGS
             System.out.println("Error: " + e.getMessage());
         }
 
@@ -105,18 +109,97 @@ public class App {
         Shape[] shapeArray = ReadFileClass.ReadFile(file);; // read file and store shape arrays as objects in object array
         
         long startTime = System.currentTimeMillis(); // set current time
-        // SORTING ALGORITHM LOGIC GOES HERE vvvvvvvv
+        
 
         // TEST PRINT OF ARRAY
-        for (int i = 0; i < shapeArray.length; i++) { 
-            System.out.println(shapeArray[i]);
+        // for (int i = 0; i < shapeArray.length; i++) { 
+        //     System.out.println(shapeArray[i]);
+        // }
+        
+        //sortArr(shapeArray, selectedAlgorithm, compareDimension);
+        switch (selectedAlgorithm) {
+            case "b":
+                BubbleSort.bubbleSort(shapeArray, compareDimension);
+                break;
+            default:
+                break;
         }
+        
 
-        // SORTING ALGORITHM LOGIC GOES HERE ^^^^^^^^
+  
         long endTime = System.currentTimeMillis(); // set current time
         long elapsedTime = endTime - startTime; // calculate elapsed time
        
+        // print every 1000th shape in the sorted array
+        for (int i = 0; i <= 1000; i++) {
+            System.out.println(shapeArray[i]);
+        }
+
         System.out.println("\nShape array length: " + shapeArray.length); // test code
         System.out.println("\nEXECUTION TIME: " + elapsedTime + " milliseconds\n"); // print elapsed time
     }
+
+
+
+    // public static void sortArr(Shape[] arr, String sortAlg, String compareType) {
+    // int lastIndex = arr.length - 1;
+
+    //     if (compareType.equalsIgnoreCase("h")) {
+    //         if (sortAlg.equalsIgnoreCase("b")) {
+                
+    //             BubbleSort.bubbleSort(arr);
+                
+    //         } else if (sortAlg.equalsIgnoreCase("s")) {
+    //             SelectionSort.selectionSort(arr);
+    //         } else if (sortAlg.equalsIgnoreCase("i")) {
+    //             InsertionSort.insertionSort(arr);
+    //         } else if (sortAlg.equalsIgnoreCase("m")) {
+    //             MergeSort.mergSort(arr, 0, lastIndex);
+    //         } else if (sortAlg.equalsIgnoreCase("z")) {
+    //             HeapSort.heapSort(arr);
+    //         } else {
+    //             System.out.println("Invalid compare type1");
+    //         }
+    //     } else if (compareType.equalsIgnoreCase("v")) {
+    //         if (sortAlg.equalsIgnoreCase("b")) {
+    //             BubbleSort.bubbleSort(arr, v);
+    //         } else if (sortAlg.equalsIgnoreCase("s")) {
+    //             SelectionSort.selectionSort(arr, v);
+    //         } else if (sortAlg.equalsIgnoreCase("i")) {
+    //             InsertionSort.insertionSort(arr, v);
+    //         } else if (sortAlg.equalsIgnoreCase("m")) {
+    //             int firstIndex = 0;
+    //             MergeSort.mergSort(arr, firstIndex, lastIndex, v);
+    //         } else if (sortAlg.equalsIgnoreCase("q")) {
+    //             QuickSort.quicksort(arr, v);
+    //         } else if (sortAlg.equalsIgnoreCase("z")) {
+    //             HeapSort.heapSort(arr, v);
+    //         } else {
+    //             System.out.println("Invalid compare type2");
+    //         }
+    //     } else if (compareType.equalsIgnoreCase("a")) {
+    //         if (sortAlg.equalsIgnoreCase("b")) {
+    //             BubbleSort.bubbleSort(arr, a);
+    //         } else if (sortAlg.equalsIgnoreCase("s")) {
+    //             SelectionSort.selectionSort(arr, a);
+    //         } else if (sortAlg.equalsIgnoreCase("i")) {
+    //             InsertionSort.insertionSort(arr, a);
+    //         } else if (sortAlg.equalsIgnoreCase("m")) {
+    //             MergeSort.mergSort(arr, 0, lastIndex, a);
+    //         } else if (sortAlg.equalsIgnoreCase("q")) {
+    //             QuickSort.quicksort(arr, a);
+    //         } else if (sortAlg.equalsIgnoreCase("z")) {
+    //             HeapSort.heapSort(arr, a);
+    //         } else {
+    //             System.out.println("Invalid compare type3");
+    //         }
+    //     } else {
+    //         System.out.println("Invalid compare type4");
+    //     }
+        
+    // }
+
+    //
 }
+
+
