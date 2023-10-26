@@ -1,3 +1,8 @@
+TESTING:
+make sure the cmd line args work for the compiled .jar file
+make sure error messages give the user enough info about proper format of cmd line args
+make sure everything works lol
+
 SUBMISSION:
 
 1. An executable Java Archive file (.jar) for your sorting application called Sort.jar.
