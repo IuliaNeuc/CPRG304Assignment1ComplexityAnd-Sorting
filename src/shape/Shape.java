@@ -8,6 +8,9 @@ public abstract class Shape implements Comparable<Shape> {
         this.h = h;
     }    
 
+    public Shape() {
+    }
+
     public double getHeight() {
         return this.h;
     }
