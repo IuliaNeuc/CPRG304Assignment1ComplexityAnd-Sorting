@@ -6,7 +6,7 @@ import java.io.File;
 import shape.*;
 
 public class ReadFileClass {
-    public static Shape[] ReadFile1(File fileToRead) {
+    public static Shape[] ReadFile(File fileToRead) {
 
         String[] shapeElementArray = null; // store elements from text file
         int shapeCount = 0; // number of shapes in text file
