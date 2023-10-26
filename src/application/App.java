@@ -1,6 +1,8 @@
 package application;
 
 import java.io.File;
+
+import algorithms.*;
 import shape.*;
 
 public class App {
@@ -93,11 +95,21 @@ public class App {
         
 
 
-        // print unsorted array
+        
+        long startTime = System.currentTimeMillis(); // set current time
+        
+        // SORTING ALGORITHM LOGIC GOES HERE vvvvvvvv
+
+        // TEST PRINT OF ARRAY
         for (int i = 0; i < shapeArray.length; i++) { 
             System.out.println(shapeArray[i]);
         }
+
+        // SORTING ALGORITHM LOGIC GOES HERE ^^^^^^^^
+
+        long endTime = System.currentTimeMillis(); // set current time
+        long elapsedTime = endTime - startTime; // calculate elapsed time
         
-        
+        System.out.println("\nEXECUTION TIME: " + elapsedTime + " milliseconds"); // print elapsed time
     }
 }
