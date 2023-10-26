@@ -93,11 +93,7 @@ public class App {
         File file = new File(filePath); // file path from command line argument -f
         Shape[] shapeArray = ReadFileClass.ReadFile1(file);; // read file and store shape arrays as objects in object array
         
-
-
-        
         long startTime = System.currentTimeMillis(); // set current time
-        
         // SORTING ALGORITHM LOGIC GOES HERE vvvvvvvv
 
         // TEST PRINT OF ARRAY
@@ -106,7 +102,6 @@ public class App {
         }
 
         // SORTING ALGORITHM LOGIC GOES HERE ^^^^^^^^
-
         long endTime = System.currentTimeMillis(); // set current time
         long elapsedTime = endTime - startTime; // calculate elapsed time
         
