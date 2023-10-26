@@ -9,7 +9,7 @@ public class App {
         // args for testing
         args = new String[6];
         args[0] = "-f";
-        args[1] = "src/resources/test1.txt";
+        args[1] = "src/resources/polyfor1.txt";
         args[2] = "-t";
         args[3] = "h";
         args[4] = "-s";
@@ -89,21 +89,15 @@ public class App {
 
         // FILE READ
         File file = new File(filePath); // file path from command line argument -f
-        Object[] shapeObjectArray = (Object[]) ReadFile.ReadFile(file); // read file and store shape arrays as objects in object array
+        Shape[] shapeArray = ReadFileClass.ReadFile1(file);; // read file and store shape arrays as objects in object array
         
-        // cast object[n] in object array to shape array 
-        Shape[] shapeArray = (Shape[]) shapeObjectArray[0]; 
-        Cone[] coneArray = (Cone[]) shapeObjectArray[1];
-        Cylinder[] cylinderArray = (Cylinder[]) shapeObjectArray[2];
-        Pyramid[] pyramidArray = (Pyramid[]) shapeObjectArray[3];
-        TriangularPrism[] triangularPrismArray = (TriangularPrism[]) shapeObjectArray[4];
-        SquarePrism[] squarePrismArray = (SquarePrism[]) shapeObjectArray[5]; 
-        PentagonalPrism[] pentagonalPrismArray = (PentagonalPrism[]) shapeObjectArray[6];
-        OctagonalPrism[] octagonalPrismArray = (OctagonalPrism[]) shapeObjectArray[7];
+
 
         // print unsorted array
         for (int i = 0; i < shapeArray.length; i++) { 
-            System.out.println(shapeArray[i].toString());
+            System.out.println(shapeArray[i]);
         }
+        
+        
     }
 }
