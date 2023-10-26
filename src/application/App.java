@@ -81,7 +81,7 @@ public class App {
         // FILE READ
         File file = new File("src/resources/test1.txt"); // TESTING FILE PATH
         //File file = new File(filePath); // file path from command line argument -f
-        Object[] shapeObjectArray = (Object[]) ReadFiles.ReadFile(file); // read file and store shape arrays as objects in object array
+        Object[] shapeObjectArray = (Object[]) ReadFile.ReadFile(file); // read file and store shape arrays as objects in object array
         
         // cast object[n] in object array to shape array 
         Shape[] shapeArray = (Shape[]) shapeObjectArray[0]; 
@@ -93,7 +93,8 @@ public class App {
         PentagonalPrism[] pentagonalPrismArray = (PentagonalPrism[]) shapeObjectArray[6];
         OctagonalPrism[] octagonalPrismArray = (OctagonalPrism[]) shapeObjectArray[7];
 
-        for (int i = 0; i < shapeArray.length; i++) { // print unsorted array
+        // print unsorted array
+        for (int i = 0; i < shapeArray.length; i++) { 
             System.out.println(shapeArray[i].toString());
         }
     }

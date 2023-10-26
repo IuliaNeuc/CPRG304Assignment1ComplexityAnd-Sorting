@@ -1,5 +1,5 @@
 package application;
 
-public class WriteFiles {
+public class WriteFile {
     
 }

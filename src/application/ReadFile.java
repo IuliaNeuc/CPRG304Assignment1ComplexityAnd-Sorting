@@ -5,7 +5,7 @@ import java.io.File;
 
 import shape.*;
 
-public class ReadFiles {
+public class ReadFile {
     public static Object ReadFile(File fileToRead) {
 
         String[] shapeElementArray = null; // all shapes
