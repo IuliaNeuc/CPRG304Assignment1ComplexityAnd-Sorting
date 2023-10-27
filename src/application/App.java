@@ -26,11 +26,18 @@ public class App {
 
         try {
             for (int i = 0; i < 3; i++) {
-                if (args[i].substring(0, 2).equals("-f")) {
-                    filePath = args[i].substring(2, args[i].length());
-                }
-                if (args[i].substring(0, 2).equals("-t")) {
-                    compareType = args[i].substring(2, args[i].length());
+                switch (args[i].substring(0, 2)) { // check for -f, -t, -s
+                    case "-f":
+                        filePath = args[i].substring(2, args[i].length());
+                        break;
+                    case "-t":
+                        compareType = args[i].substring(2, args[i].length());
+                        break;
+                    case "-s":
+                        sortingAlgorithm = args[i].substring(2, args[i].length());
+                        break;
+                    default:
+                        break;
                 }
             }
             if (filePath == "" || compareType == "" || sortingAlgorithm == "") { // check if all arguments are populated
