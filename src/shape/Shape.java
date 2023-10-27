@@ -42,7 +42,7 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
     // comparable interface
     @Override
     public int compareTo(Shape other) {
-        return compare(this, other); // compares current object with other object
+        return Double.compare(this.height, other.height);
     }
 
     // comparator interface
@@ -54,6 +54,7 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
     // toString
     @Override
     public String toString() {
+
         return String.format("Height: %.2f, Volume: %.2f, Base Area: %.2f", this.height, this.calcVolume(), this.calcBaseArea());
     }
 }

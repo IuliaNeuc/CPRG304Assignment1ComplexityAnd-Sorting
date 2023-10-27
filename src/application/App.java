@@ -119,51 +119,41 @@ public class App {
         File file = new File(filePath); // file path from command line argument -f
         Shape[] shapeArray = ReadFileClass.ReadFile(file);; // read file and store shape arrays as objects in object array
         
-        //long startTime = System.currentTimeMillis(); // set current time
+        long startTime = System.currentTimeMillis(); // set current time
         
-        long startTime = System.currentTimeMillis();
         long endTime = System.currentTimeMillis();
         int lastIndex = shapeArray.length - 1; 
               
         if(compareDimension.equalsIgnoreCase("h"))
         {
-            if(selectedAlgorithm.equalsIgnoreCase("b"))
-            {                
+            if (selectedAlgorithm.equalsIgnoreCase("b")) {                
                 startTime = System.currentTimeMillis();
                 BubbleSort.bubbleSort(shapeArray, compareDimension);
                 endTime = System.currentTimeMillis();
-            }
-            else if(selectedAlgorithm.equalsIgnoreCase("s"))
-            {
+
+            } else if (selectedAlgorithm.equalsIgnoreCase("s")) {
                 startTime = System.currentTimeMillis();
                 SelectionSort.selectionSort(shapeArray);
                 endTime = System.currentTimeMillis();                
-            }
-            else if(selectedAlgorithm.equalsIgnoreCase("i"))
-            {
+            } else if (selectedAlgorithm.equalsIgnoreCase("i")) {
                 startTime = System.currentTimeMillis();
                 InsertionSort.insertionSort(shapeArray);
                 endTime = System.currentTimeMillis();                
-            }
-            else if(selectedAlgorithm.equalsIgnoreCase("m"))
-            {
+            } else if (selectedAlgorithm.equalsIgnoreCase("m")) {
                 startTime = System.currentTimeMillis();
                 MergeSort.mergSort(shapeArray, 0, lastIndex);
                 endTime = System.currentTimeMillis();                
-            }
-            else if(selectedAlgorithm.equalsIgnoreCase("q"))
-            {
+            } else if (selectedAlgorithm.equalsIgnoreCase("q")) {
                 startTime = System.currentTimeMillis();
                 QuickSort.quickSort(shapeArray);
                 endTime = System.currentTimeMillis();                
-            }
-            else if(selectedAlgorithm.equalsIgnoreCase("z"))
-            {
+            } else if (selectedAlgorithm.equalsIgnoreCase("z")) {
                 startTime = System.currentTimeMillis();
                 HeapSort.heapSort(shapeArray);
                 endTime = System.currentTimeMillis();                
             }
         }
+
         if(compareDimension.equalsIgnoreCase("a"))
         {
             if(selectedAlgorithm.equalsIgnoreCase("b"))
@@ -241,9 +231,7 @@ public class App {
                 HeapSort.heapSort(shapeArray);
                 endTime = System.currentTimeMillis();                
             }
-        }
-        else
-        {
+        } else {
             System.out.println("Please enter valid comparing type");
 
         }

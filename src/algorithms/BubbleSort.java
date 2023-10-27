@@ -3,6 +3,8 @@ package algorithms;
 
 import java.util.Comparator;
 
+import shape.Shape;
+
 
 public class BubbleSort
 {
@@ -21,9 +23,9 @@ public class BubbleSort
      * flexibility when working with generics, particularly when you need to handle types
      * that are related by inheritance.
      */
-     
+    
     // Implementation of bubble sort for objects that implement the Comparable interface
-    public static <T extends Comparable<? super T>> void bubbleSort(T[] array, String compareType)
+    public static <T extends Shape & comparable<? super T>> void bubbleSort(Shape[] array, String compareType)
     {
         int arraySize = array.length;
         compareType = "h"; // compare heights
@@ -32,16 +34,22 @@ public class BubbleSort
         for(int i = 0; i < arraySize - 1; i++)
         {
             //Inner loop that will iterate through the array from the beginning to the unsorted portion
-            for(int j = 0; j < arraySize - 1 - i; j++)
-            {
-                //compare adjacent elements in the array
-                int res = array[j].compareTo(array[i + 1]);
-                // if the current element is greater than the next one, swap them
-                if(res<0)
-                {
-                    T temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+            for(int j = 0; j < arraySize - 1 - i; j++) {
+                if (compareType == "h") {;
+                    //compare adjacent elements in the array
+                    int res = (array[j]).compareTo(array[j + 1]);
+                    // if the current element is greater than the next one, swap them
+                    if (res < 0) {
+                        Shape temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                } else if (compareType == "v") {
+                    
+                } else if (compareType == "a") {
+                    
+                } else {
+                    System.out.println("Invalid compare type");
                 }
             }
         }
