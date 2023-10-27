@@ -23,32 +23,40 @@ public class BubbleSort
      */
     
     // Implementation of bubble sort for objects that implement the Comparable interface
-    public static <T extends Shape & comparable<? super T>> void bubbleSort(Shape[] array, String compareType)
+    public static <T extends Shape > void bubbleSort(T[] array, String compareType)
     {
         int arraySize = array.length;
-        compareType = "h"; // compare heights
+        
 
         // outer loop that wil iterate through the array from the beginning to the second to last element
-        for(int i = 0; i < arraySize - 1; i++)
+        for(int i = arraySize; i > 0; i--)
         {
             //Inner loop that will iterate through the array from the beginning to the unsorted portion
-            for(int j = 0; j < arraySize - 1 - i; j++) {
+            for(int j = 0; j < i - 1; j++) {
                 if (compareType == "h") {;
                     int res = (array[j]).compareTo(array[j + 1]); //compare adjacent elements in the array
-                    if (res < 0) { // if the current element is greater than the next one, swap them
-                        Shape temp = array[j];
+                    if (res > 0) { // if the current element is greater than the next one, swap them
+                        T temp = array[j];
                         array[j] = array[j + 1];
                         array[j + 1] = temp;
                     }
                 } else if (compareType == "v") {
-                    int res = (array[j]).compare(array[j + 1], null);
-                    if (res < 0) {
-                        Shape temp = array[j];
+                    CompareVolume cv = new CompareVolume();
+                    int res = cv.compare(array[j], array[j + 1]);
+                    if (res > 0) {
+                        T temp = array[j];
                         array[j] = array[j + 1];
                         array[j + 1] = temp;
                     }
                 } else if (compareType == "a") {
                     
+                    CompareArea ca = new CompareArea();
+                    int res = ca.compare(array[j], array[j + 1]);
+                    if (res > 0) {
+                        T temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
                 } else {
                     System.out.println("Invalid compare type");
                 }

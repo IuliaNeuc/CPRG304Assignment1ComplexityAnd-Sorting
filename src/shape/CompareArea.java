@@ -10,7 +10,7 @@ public class CompareArea implements Comparator<Shape>
     @Override
     public int compare(Shape s1, Shape s2) {
         
-        double diff = s1.getBaseArea() - s2.getBaseArea();
+        double diff = s1.calcBaseArea() - s2.calcBaseArea();
         if (diff > 0) {
             return 1;
         } else if (diff < 0) {

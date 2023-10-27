@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class MergeSort
 {
     //Generic merge sort for arrays of Comparable elements
-    public static <T extends Comparable<? super T>> void mergSort(T[] arr, int firstIndex, int lastIndex)
+    public static <T extends Comparable<? super T>> void mergeSort(T[] arr, int firstIndex, int lastIndex)
     {
         if(firstIndex < lastIndex)
         {
@@ -14,8 +14,8 @@ public class MergeSort
             int mid = (firstIndex + lastIndex) / 2;
 
             //Recursively call merge sort on the left and right halves
-            mergSort(arr, firstIndex, mid);
-            mergSort(arr, mid + 1, lastIndex);
+            mergeSort(arr, firstIndex, mid);
+            mergeSort(arr, mid + 1, lastIndex);
 
             //Merge the sorted halves
             merg(arr, firstIndex, mid, lastIndex);

@@ -15,8 +15,9 @@ public class App {
         //args for testing
         args = new String[6];
         args[0] = "-fsrc/resources/polyfor1.txt";  // change name of .txt file to test different files in resources folder
-        args[1] = "-th";
+        args[1] = "-ta";
         args[2] = "-sb";
+        
         
         // variables for command line arguments
         String filePath = "";
@@ -127,7 +128,7 @@ public class App {
                 endTime = System.currentTimeMillis();                
             } else if (selectedAlgorithm.equalsIgnoreCase("m")) {
                 startTime = System.currentTimeMillis();
-                MergeSort.mergSort(shapeArray, 0, lastIndex);
+                MergeSort.mergeSort(shapeArray, 0, lastIndex);
                 endTime = System.currentTimeMillis();                
             } else if (selectedAlgorithm.equalsIgnoreCase("q")) {
                 startTime = System.currentTimeMillis();
@@ -163,7 +164,7 @@ public class App {
             else if(selectedAlgorithm.equalsIgnoreCase("m"))
             {
                 startTime = System.currentTimeMillis();
-                MergeSort.mergSort(shapeArray, 0, lastIndex);
+                MergeSort.mergeSort(shapeArray, 0, lastIndex);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("q"))
@@ -202,7 +203,7 @@ public class App {
             else if(selectedAlgorithm.equalsIgnoreCase("m"))
             {
                 startTime = System.currentTimeMillis();
-                MergeSort.mergSort(shapeArray, 0, lastIndex);
+                MergeSort.mergeSort(shapeArray, 0, lastIndex);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("q"))
