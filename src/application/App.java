@@ -20,9 +20,9 @@ public class App {
         args[2] = "-sb";
         
         // variables for command line arguments
-        String filePath = ""; // file name
-        String compareType = ""; // compare type
-        String sortingAlgorithm = ""; // sorting algorithm
+        String filePath = "";
+        String compareType = "";
+        String sortingAlgorithm = "";
 
         try {
             for (int i = 0; i < 3; i++) {
@@ -118,14 +118,16 @@ public class App {
         long elapsedTime = endTime - startTime; // calculate elapsed time
        
         // print every 1000th shape in the sorted array
+        int printCounter1 = 0;
+        for (int i = 0; i < (shapeArray.length / 1000); i++) {
+            System.out.println(shapeArray[i]);
+            printCounter1++;
+        }
+        System.out.println("Print count " + printCounter1);
 
-        // for (int i = 0; i <= shapeArray.length; i++) {
+        // for (int i = 0; i < shapeArray.length; i++) {
         //     System.out.println(shapeArray[i]);
         // }
-
-        for (int i = 0; i < shapeArray.length; i++) {
-            System.out.println(shapeArray[i]);
-        }
 
         System.out.println("\nShape array length: " + shapeArray.length); // test code
         System.out.println("\nEXECUTION TIME: " + elapsedTime + " milliseconds\n"); // print elapsed time
