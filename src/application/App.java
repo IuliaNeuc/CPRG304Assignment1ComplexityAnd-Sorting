@@ -96,13 +96,7 @@ public class App {
         Shape[] shapeArray = ReadFileClass.ReadFile(file);; // read file and store shape arrays as objects in object array
         
         long startTime = System.currentTimeMillis(); // set current time
-        
-
-        // TEST PRINT OF ARRAY
-        // for (int i = 0; i < shapeArray.length; i++) { 
-        //     System.out.println(shapeArray[i]);
-        // }
-        
+                
         //sortArr(shapeArray, selectedAlgorithm, compareDimension);
         switch (selectedAlgorithm) {
             case "b":
@@ -112,12 +106,11 @@ public class App {
                 break;
         }
         
-
-  
+        // measure algorithm execution time
         long endTime = System.currentTimeMillis(); // set current time
         long elapsedTime = endTime - startTime; // calculate elapsed time
        
-        // print every 1000th shape in the sorted array
+        // print every 1000th shape in the sorted array (surrnelty not sorted)
         int printCounter1 = 0;
         for (int i = 0; i < (shapeArray.length / 1000); i++) {
             System.out.println(shapeArray[i]);
@@ -125,11 +118,12 @@ public class App {
         }
         System.out.println("Print count " + printCounter1);
 
+        // testing code
         // for (int i = 0; i < shapeArray.length; i++) {
         //     System.out.println(shapeArray[i]);
         // }
 
         System.out.println("\nShape array length: " + shapeArray.length); // test code
-        System.out.println("\nEXECUTION TIME: " + elapsedTime + " milliseconds\n"); // print elapsed time
+        System.out.println("\nEXECUTION TIME: " + elapsedTime + " milliseconds\n"); // print algotithm execution time
     }
 }
