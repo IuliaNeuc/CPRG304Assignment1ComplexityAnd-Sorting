@@ -14,43 +14,23 @@ public class App {
         
         //args for testing
         args = new String[6];
-        args[0] = "-f";
-        args[1] = "src/resources/polyfor1.txt"; // change name of .txt file to test different files in resources folder
-        args[2] = "-t";
-        args[3] = "h";
-        args[4] = "-s";
-        args[5] = "b";
 
+        args[0] = "-fsrc/resources/polyfor1.txt";  // change name of .txt file to test different files in resources folder
+        args[1] = "-th";
+        args[2] = "-sb";
+        
         // variables for command line arguments
         String filePath = ""; // file name
         String compareType = ""; // compare type
         String sortingAlgorithm = ""; // sorting algorithm
 
-        //SHOULD WE USE THIS INSTEAD?
-        // for (int i = 0; i < 3; i++) {
-        //     if (args[i].substring(0, 2).equalsIgnoreCase("-f")) {
-        //         filePath = args[i].substring(2, args[i].length());
-        //     }
-        //     if (args[i].substring(0, 2).equalsIgnoreCase("-t")) {
-        //         compareType = args[i].substring(2, args[i].length());
-        //     }
-        // }
-        
-        
         try {
-            for (int i = 0; i < args.length; i++) { // parse command line arguments
-                switch (args[i].toLowerCase()) { // convert to lowercase to make args case insensitive
-                    case "-f":
-                        filePath = args[i + 1]; // set path to file
-                        break;
-                    case "-t":
-                        compareType = args[i + 1]; // select compare type
-                        break;
-                    case "-s":
-                        sortingAlgorithm = args[i + 1]; // select sorting algorithm
-                        break;
-                    default:
-                        break;
+            for (int i = 0; i < 3; i++) {
+                if (args[i].substring(0, 2).equalsIgnoreCase("-f")) {
+                    filePath = args[i].substring(2, args[i].length());
+                }
+                if (args[i].substring(0, 2).equalsIgnoreCase("-t")) {
+                    compareType = args[i].substring(2, args[i].length());
                 }
             }
             if (filePath == "" || compareType == "" || sortingAlgorithm == "") { // check if all arguments are populated
