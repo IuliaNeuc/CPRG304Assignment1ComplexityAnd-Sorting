@@ -9,6 +9,31 @@ import java.io.File;
 import algorithms.*;
 import shape.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
+import java.util.Scanner;
+
+import shape.CompareArea;
+import shape.Shape;
+import shape.CompareVolume;
+import shape.Cone;
+import shape.Cylinder;
+import shape.OctagonalPrism;
+import shape.PentagonalPrism;
+
+import shape.Pyramid;
+import shape.SquarePrism;
+import shape.TriangularPrism;
+
+import algorithms.BubbleSort;
+import algorithms.InsertionSort;
+import algorithms.MergeSort;
+import algorithms.HeapSort;
+import algorithms.QuickSort;
+import algorithms.SelectionSort;
+
+
 public class App {
     public static void main(String[] args) {
         
@@ -94,34 +119,157 @@ public class App {
         File file = new File(filePath); // file path from command line argument -f
         Shape[] shapeArray = ReadFileClass.ReadFile(file);; // read file and store shape arrays as objects in object array
         
-        long startTime = System.currentTimeMillis(); // set current time
-                
-        //sortArr(shapeArray, selectedAlgorithm, compareDimension);
-        switch (selectedAlgorithm) {
-            case "b":
+        //long startTime = System.currentTimeMillis(); // set current time
+        
+        long startTime = System.currentTimeMillis();
+        long endTime = System.currentTimeMillis();
+        int lastIndex = shapeArray.length - 1; 
+              
+        if(compareDimension.equalsIgnoreCase("h"))
+        {
+            if(selectedAlgorithm.equalsIgnoreCase("b"))
+            {                
+                startTime = System.currentTimeMillis();
                 BubbleSort.bubbleSort(shapeArray, compareDimension);
-                break;
-            default:
-                break;
+                endTime = System.currentTimeMillis();
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("s"))
+            {
+                startTime = System.currentTimeMillis();
+                SelectionSort.selectionSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("i"))
+            {
+                startTime = System.currentTimeMillis();
+                InsertionSort.insertionSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("m"))
+            {
+                startTime = System.currentTimeMillis();
+                MergeSort.mergSort(shapeArray, 0, lastIndex);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("q"))
+            {
+                startTime = System.currentTimeMillis();
+                QuickSort.quickSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("z"))
+            {
+                startTime = System.currentTimeMillis();
+                HeapSort.heapSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+        }
+        if(compareDimension.equalsIgnoreCase("a"))
+        {
+            if(selectedAlgorithm.equalsIgnoreCase("b"))
+            {                
+                startTime = System.currentTimeMillis();
+                BubbleSort.bubbleSort(shapeArray, compareDimension);
+                endTime = System.currentTimeMillis();
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("s"))
+            {
+                startTime = System.currentTimeMillis();
+                SelectionSort.selectionSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("i"))
+            {
+                startTime = System.currentTimeMillis();
+                InsertionSort.insertionSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("m"))
+            {
+                startTime = System.currentTimeMillis();
+                MergeSort.mergSort(shapeArray, 0, lastIndex);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("q"))
+            {
+                startTime = System.currentTimeMillis();
+                QuickSort.quickSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("z"))
+            {
+                startTime = System.currentTimeMillis();
+                HeapSort.heapSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+        }
+        if(compareDimension.equalsIgnoreCase("v"))
+        {
+            if(selectedAlgorithm.equalsIgnoreCase("b"))
+            {                
+                startTime = System.currentTimeMillis();
+                BubbleSort.bubbleSort(shapeArray, compareDimension);
+                endTime = System.currentTimeMillis();
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("s"))
+            {
+                startTime = System.currentTimeMillis();
+                SelectionSort.selectionSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("i"))
+            {
+                startTime = System.currentTimeMillis();
+                InsertionSort.insertionSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("m"))
+            {
+                startTime = System.currentTimeMillis();
+                MergeSort.mergSort(shapeArray, 0, lastIndex);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("q"))
+            {
+                startTime = System.currentTimeMillis();
+                QuickSort.quickSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+            else if(selectedAlgorithm.equalsIgnoreCase("z"))
+            {
+                startTime = System.currentTimeMillis();
+                HeapSort.heapSort(shapeArray);
+                endTime = System.currentTimeMillis();                
+            }
+        }
+        else
+        {
+            System.out.println("Please enter valid comparing type");
+
         }
         
         // measure algorithm execution time
-        long endTime = System.currentTimeMillis(); // set current time
-        long elapsedTime = endTime - startTime; // calculate elapsed time
+        //long endTime = System.currentTimeMillis(); // set current time
+        //long elapsedTime = endTime - startTime; // calculate elapsed time
        
-        // print every 1000th shape in the sorted array (surrnelty not sorted)
-        int printCounter1 = 0;
-        for (int i = 0; i < (shapeArray.length / 1000); i++) {
-            System.out.println(shapeArray[i]);
-            printCounter1++;
+        // print every 1000th shape in the sorted array (currently not sorted)
+        // int printCounter1 = 0;
+        // for (int i = 0; i < (shapeArray.length / 1000); i++) {
+        //     System.out.println(shapeArray[i]);
+        //     printCounter1++;
+        // }
+        // System.out.println("Print count " + printCounter1);
+
+        for (int i = 0; i < shapeArray.length; i += 1000) {
+            System.out.println("Sorted value at index " + i + ": " + shapeArray[i] + "based on " + compareDimension);
         }
-        System.out.println("Print count " + printCounter1);
 
         // testing code
         // for (int i = 0; i < shapeArray.length; i++) {
         //     System.out.println(shapeArray[i]);
         // }
 
+        long elapsedTime = endTime - startTime;
         System.out.println("\nShape array length: " + shapeArray.length); // test code
         System.out.println("\nEXECUTION TIME: " + elapsedTime + " milliseconds\n"); // print algotithm execution time
     }
