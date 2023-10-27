@@ -14,7 +14,6 @@ public class App {
         
         //args for testing
         args = new String[6];
-
         args[0] = "-fsrc/resources/polyfor1.txt";  // change name of .txt file to test different files in resources folder
         args[1] = "-th";
         args[2] = "-sb";
@@ -41,7 +40,7 @@ public class App {
                 }
             }
             if (filePath == "" || compareType == "" || sortingAlgorithm == "") { // check if all arguments are populated
-                System.out.println("\nError: Invalid argument.\nFormat: -f <file location> -t <compare type> -s <algorithm>.\nTry adding a space after each argument.\nAll arguments must be populated.\nThe order of the arguments does not matter.");
+                System.out.println("\nError: Invalid argument.\nFormat: -f<file location> -t<compare type> -s<algorithm>.\nThe order of the arguments does not matter.");
             }
         } catch (Exception e) { // NEEDS TO THROW SOMETHINGS
             System.out.println("Error: " + e.getMessage());
