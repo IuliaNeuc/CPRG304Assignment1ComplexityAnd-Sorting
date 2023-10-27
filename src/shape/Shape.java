@@ -2,7 +2,7 @@ package shape;
 
 import java.util.Comparator;
 
-public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
+public abstract class Shape implements Comparable<Shape>, Comparator<Shape>  {
     
     private double height;
     private double volume;

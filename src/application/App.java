@@ -9,31 +9,6 @@ import java.io.File;
 import algorithms.*;
 import shape.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
-import java.util.Scanner;
-
-import shape.CompareArea;
-import shape.Shape;
-import shape.CompareVolume;
-import shape.Cone;
-import shape.Cylinder;
-import shape.OctagonalPrism;
-import shape.PentagonalPrism;
-
-import shape.Pyramid;
-import shape.SquarePrism;
-import shape.TriangularPrism;
-
-import algorithms.BubbleSort;
-import algorithms.InsertionSort;
-import algorithms.MergeSort;
-import algorithms.HeapSort;
-import algorithms.QuickSort;
-import algorithms.SelectionSort;
-
-
 public class App {
     public static void main(String[] args) {
         
@@ -47,6 +22,8 @@ public class App {
         String filePath = "";
         String compareType = "";
         String sortingAlgorithm = "";
+        String printDimension = "";
+        String printAlg = "";
 
         try {
             for (int i = 0; i < 3; i++) {
@@ -75,12 +52,15 @@ public class App {
         switch (compareType) { // check user input for errors and set shape dimension to compare if no errors
             case "h":
                 compareDimension = "h"; // Height
+                printDimension = "Height";
                 break;
             case "v": 
                 compareDimension = "v"; // Volume
+                printDimension = "Volume";
                 break;
             case "a":
                 compareDimension = "a"; // Base area
+                printDimension = "Base area";
                 break;
             default: // check for invalid input
                 System.out.println("\nError: Invalid compare type.\nPlease use one of the following for -t: h, v, a.");
@@ -91,21 +71,27 @@ public class App {
         switch (sortingAlgorithm) { // check user input for errors and select the algorithm if no errors
             case "b":
                 selectedAlgorithm = "b"; // Bubble sort
+                printAlg = "Bubble sort";
                 break;
             case "s":
                 selectedAlgorithm = "s"; // Selection sort
+                printAlg = "Selection sort";
                 break;
             case "i":
                 selectedAlgorithm = "i"; // Insertion sort
+                printAlg = "Insertion sort";
                 break;
             case "m":
                 selectedAlgorithm = "m"; // Merge sort
+                printAlg = "Merge sort";
                 break;
             case "q":
                 selectedAlgorithm = "q"; // Quick sort
+                printAlg = "Quick sort";
                 break;
             case "z":
                 selectedAlgorithm = "z"; // custom sort
+                printAlg = "Custom sort";
                 break;
             default: // check for invalid input
                 System.out.println("\nError: Invalid sorting algorithm.\nPlease use one of the following for -s: b, s, i, m, q, z.");
@@ -248,9 +234,24 @@ public class App {
         // }
         // System.out.println("Print count " + printCounter1);
 
-        for (int i = 0; i < shapeArray.length; i += 1000) {
-            System.out.println("Sorted value at index " + i + ": " + shapeArray[i] + "based on " + compareDimension);
+
+        if (compareDimension == "h") {
+            for (int i = 0; i < shapeArray.length; i += 1000) {
+            System.out.println("Sorted by " + printDimension + " at index " + i + " using " + printAlg +  ": " + shapeArray[i].getHeight());
         }
+        } else if (compareDimension == "v") {
+            for (int i = 0; i < shapeArray.length; i += 1000) {
+            System.out.println("Sorted by " + printDimension + " at index " + i + " using " + printAlg +  ": " + shapeArray[i].getVolume());
+        }
+        } else if (compareDimension == "a") {
+            for (int i = 0; i < shapeArray.length; i += 1000) {
+            System.out.println("Sorted by " + printDimension + " at index " + i + " using " + printAlg +  ": " + shapeArray[i].getBaseArea());
+        }
+        } else {
+            System.out.println("Please enter valid comparing type");
+        }
+        
+
 
         // testing code
         // for (int i = 0; i < shapeArray.length; i++) {

@@ -3,9 +3,7 @@ package algorithms;
 
 import java.util.Comparator;
 
-import shape.Shape;
-
-
+import shape.*;
 public class BubbleSort
 {
     /**
@@ -36,16 +34,19 @@ public class BubbleSort
             //Inner loop that will iterate through the array from the beginning to the unsorted portion
             for(int j = 0; j < arraySize - 1 - i; j++) {
                 if (compareType == "h") {;
-                    //compare adjacent elements in the array
-                    int res = (array[j]).compareTo(array[j + 1]);
-                    // if the current element is greater than the next one, swap them
-                    if (res < 0) {
+                    int res = (array[j]).compareTo(array[j + 1]); //compare adjacent elements in the array
+                    if (res < 0) { // if the current element is greater than the next one, swap them
                         Shape temp = array[j];
                         array[j] = array[j + 1];
                         array[j + 1] = temp;
                     }
                 } else if (compareType == "v") {
-                    
+                    // int res = (array[j]).compare(array[j + 1]);
+                    // if (res < 0) {
+                    //     Shape temp = array[j];
+                    //     array[j] = array[j + 1];
+                    //     array[j + 1] = temp;
+                    // }
                 } else if (compareType == "a") {
                     
                 } else {
