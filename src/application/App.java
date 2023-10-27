@@ -131,7 +131,12 @@ public class App {
         long elapsedTime = endTime - startTime; // calculate elapsed time
        
         // print every 1000th shape in the sorted array
-        for (int i = 0; i <= 1000; i++) {
+
+        // for (int i = 0; i <= shapeArray.length; i++) {
+        //     System.out.println(shapeArray[i]);
+        // }
+
+        for (int i = 0; i < shapeArray.length; i++) {
             System.out.println(shapeArray[i]);
         }
 

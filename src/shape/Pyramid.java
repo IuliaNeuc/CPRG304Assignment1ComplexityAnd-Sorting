@@ -1,30 +1,29 @@
 package shape;
 
 public class Pyramid extends Shape{
+    private double baseArea;
+
+    public Pyramid(double height, double baseArea) {
+        super(height);
+        this.baseArea = baseArea;
+    }
     
-    private double size;
-
-    public Pyramid(double h, double size) {
-        super(h);
-        this.size = size;
+    public double getbaseArea() {
+        return this.baseArea;
     }
 
-    public double getSize() {
-        return this.size;
-    }
-
-    public void setSize(double size) {
-        this.size = size;
+    public void setbaseArea(double baseArea) {
+        this.baseArea = baseArea;
     }
 
     @Override
     public double calcVolume() {
-        return Math.pow(this.size, 2) * this.getHeight() / 3;
+        return Math.pow(this.baseArea, 2) * this.getHeight() / 3;
     }
 
     @Override
     public double calcBaseArea() {
-        return Math.pow(this.size, 2);
+        return Math.pow(this.baseArea, 2);
     }
     
 }

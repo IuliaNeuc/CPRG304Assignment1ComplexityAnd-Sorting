@@ -1,33 +1,60 @@
 package shape;
 
-public abstract class Shape implements Comparable<Shape> {
+import java.util.Comparator;
 
-    private double h;
+public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
+    
+    private double height;
+    private double volume;
+    private double baseArea;
 
-    public Shape(double h) {
-        this.h = h;
-    }    
-
+    // constructor
+    public Shape(double height) {
+        this.height = height;
+    }
+    
+    // getters and setters
+    public void setHeight(double height) {
+        this.height = height;
+    }
     public double getHeight() {
-        return this.h;
+        return this.height;
     }
 
-    public void setHeight(double h) {
-        this.h = h;
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+    public double getVolume() {
+        return this.volume;
     }
 
+    public void setBaseArea(double baseArea) {
+        this.baseArea = baseArea;
+    }
+    public double getBaseArea() {
+        return this.baseArea;
+    }
+
+    // abstract methods
     public abstract double calcVolume();
-
     public abstract double calcBaseArea();
 
+    // comparable interface
     @Override
     public int compareTo(Shape other) {
-        return Double.compare(this.h, other.h);
+        return compare(this, other); // compares current object with other object
     }
 
+    // comparator interface
+    @Override
+    public int compare(Shape s1, Shape s2) {
+        return Double.compare(s1.calcBaseArea() + s1.getVolume(), s2.calcBaseArea() + s2.getVolume());
+    }
+
+    // toString
     @Override
     public String toString() {
-        return String.format("Height: %.2f, Volume: %.2f, Base Area: %.2f", this.h, this.calcVolume(), this.calcBaseArea());
+        return String.format("Height: %.2f, Volume: %.2f, Base Area: %.2f", this.height, this.volume, this.baseArea);
     }
 }
 
