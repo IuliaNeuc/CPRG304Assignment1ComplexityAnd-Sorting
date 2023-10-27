@@ -26,10 +26,10 @@ public class App {
 
         try {
             for (int i = 0; i < 3; i++) {
-                if (args[i].substring(0, 2).equalsIgnoreCase("-f")) {
+                if (args[i].substring(0, 2).equals("-f")) {
                     filePath = args[i].substring(2, args[i].length());
                 }
-                if (args[i].substring(0, 2).equalsIgnoreCase("-t")) {
+                if (args[i].substring(0, 2).equals("-t")) {
                     compareType = args[i].substring(2, args[i].length());
                 }
             }
