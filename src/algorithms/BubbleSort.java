@@ -41,12 +41,12 @@ public class BubbleSort
                         array[j + 1] = temp;
                     }
                 } else if (compareType == "v") {
-                    // int res = (array[j]).compare(array[j + 1]);
-                    // if (res < 0) {
-                    //     Shape temp = array[j];
-                    //     array[j] = array[j + 1];
-                    //     array[j + 1] = temp;
-                    // }
+                    int res = (array[j]).compare(array[j + 1], null);
+                    if (res < 0) {
+                        Shape temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
                 } else if (compareType == "a") {
                     
                 } else {

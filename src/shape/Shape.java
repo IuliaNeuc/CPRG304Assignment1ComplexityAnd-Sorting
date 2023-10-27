@@ -46,10 +46,44 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape>  {
     }
 
     // comparator interface
+    // @Override
+    // public int compare(Shape s1, Shape s2) {
+    //     return Double.compare(s1.calcBaseArea() + s1.getVolume(), s2.calcBaseArea() + s2.getVolume());
+    // }
+
+    
     @Override
-    public int compare(Shape s1, Shape s2) {
-        return Double.compare(s1.calcBaseArea() + s1.getVolume(), s2.calcBaseArea() + s2.getVolume());
+    public int compare(Shape s1, Shape s2)
+    {
+        
+
+        if(s1.calcVolume() > s2.calcVolume()) {
+            return 1;
+        }
+
+        if(s1.calcVolume() < s2.calcVolume()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
+    
+    // @Override
+    // public int compare(Shape s1, Shape s2)
+    // {
+        
+    //     if(s1.calcBaseArea() > s2.calcBaseArea()) {
+    //         return 1;
+    //     }
+            
+    //     if(s1.calcBaseArea() < s2.calcBaseArea()) {
+    //         return -1;
+    //     } else {
+    //         return 0;
+    //     } 
+    // }
+    
+
 
     // toString
     @Override

@@ -237,23 +237,22 @@ public class App {
 
         if (compareDimension == "h") {
             for (int i = 0; i < shapeArray.length; i += 1000) {
-            System.out.println("Sorted by " + printDimension + " at index " + i + " using " + printAlg +  ": " + shapeArray[i].getHeight());
-        }
+                System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, i, printAlg, shapeArray[i].getHeight()));
+            }
         } else if (compareDimension == "v") {
             for (int i = 0; i < shapeArray.length; i += 1000) {
-            System.out.println("Sorted by " + printDimension + " at index " + i + " using " + printAlg +  ": " + shapeArray[i].getVolume());
+                System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, i, printAlg, shapeArray[i].calcVolume()));
         }
         } else if (compareDimension == "a") {
             for (int i = 0; i < shapeArray.length; i += 1000) {
-            System.out.println("Sorted by " + printDimension + " at index " + i + " using " + printAlg +  ": " + shapeArray[i].getBaseArea());
-        }
+                System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, i, printAlg, shapeArray[i].calcBaseArea()));        }
         } else {
             System.out.println("Please enter valid comparing type");
         }
         
 
 
-        // testing code
+        //testing code
         // for (int i = 0; i < shapeArray.length; i++) {
         //     System.out.println(shapeArray[i]);
         // }
