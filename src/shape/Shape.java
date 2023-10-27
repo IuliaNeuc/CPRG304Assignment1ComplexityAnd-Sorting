@@ -54,7 +54,7 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
     // toString
     @Override
     public String toString() {
-        return String.format("Height: %.2f, Volume: %.2f, Base Area: %.2f", this.height, this.getVolume(), this.getBaseArea());
+        return String.format("Height: %.2f, Volume: %.2f, Base Area: %.2f", this.height, this.calcVolume(), this.calcBaseArea());
     }
 }
 
