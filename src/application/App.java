@@ -6,17 +6,17 @@ package application;
 
 import java.io.File;
 
-import algorithms.*;
+
 import shape.*;
 
 public class App {
     public static void main(String[] args) {
         
-        //args for testing
-        args = new String[6];
-        args[0] = "-fsrc/resources/polyfor1.txt";  // change name of .txt file to test different files in resources folder
-        args[1] = "-ta";
-        args[2] = "-sb";
+        // //args for testing
+        // args = new String[6];
+        // args[0] = "-fsrc/resources/polyfor3.txt";  // change name of .txt file to test different files in resources folder
+        // args[1] = "-tv";
+        // args[2] = "-sm";
         
         
         // variables for command line arguments
@@ -42,7 +42,7 @@ public class App {
                         break;
                 }
             }
-            if (filePath == "" || compareType == "" || sortingAlgorithm == "") { // check if all arguments are populated
+            if (filePath == " " || compareType == " " || sortingAlgorithm == " ") { // check if all arguments are populated
                 System.out.println("\nError: Invalid argument.\nFormat: -f<file location> -t<compare type> -s<algorithm>.\nThe order of the arguments does not matter.");
             }
         } catch (Exception e) { // NEEDS TO THROW SOMETHINGS
@@ -115,28 +115,28 @@ public class App {
         {
             if (selectedAlgorithm.equalsIgnoreCase("b")) {                
                 startTime = System.currentTimeMillis();
-                BubbleSort.bubbleSort(shapeArray, compareDimension);
+                Utility.bubbleSort(shapeArray, compareDimension);
                 endTime = System.currentTimeMillis();
 
             } else if (selectedAlgorithm.equalsIgnoreCase("s")) {
                 startTime = System.currentTimeMillis();
-                SelectionSort.selectionSort(shapeArray);
+                Utility.selectionSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             } else if (selectedAlgorithm.equalsIgnoreCase("i")) {
                 startTime = System.currentTimeMillis();
-                InsertionSort.insertionSort(shapeArray);
+                Utility.insertionSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             } else if (selectedAlgorithm.equalsIgnoreCase("m")) {
                 startTime = System.currentTimeMillis();
-                MergeSort.mergeSort(shapeArray, 0, lastIndex);
+                Utility.mergeSort(shapeArray, 0, lastIndex, compareType);
                 endTime = System.currentTimeMillis();                
             } else if (selectedAlgorithm.equalsIgnoreCase("q")) {
                 startTime = System.currentTimeMillis();
-                QuickSort.quickSort(shapeArray);
+                Utility.quickSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             } else if (selectedAlgorithm.equalsIgnoreCase("z")) {
                 startTime = System.currentTimeMillis();
-                HeapSort.heapSort(shapeArray);
+                Utility.heapSort(shapeArray, compareDimension);
                 endTime = System.currentTimeMillis();                
             }
         }
@@ -146,37 +146,37 @@ public class App {
             if(selectedAlgorithm.equalsIgnoreCase("b"))
             {                
                 startTime = System.currentTimeMillis();
-                BubbleSort.bubbleSort(shapeArray, compareDimension);
+                Utility.bubbleSort(shapeArray, compareDimension);
                 endTime = System.currentTimeMillis();
             }
             else if(selectedAlgorithm.equalsIgnoreCase("s"))
             {
                 startTime = System.currentTimeMillis();
-                SelectionSort.selectionSort(shapeArray);
+                Utility.selectionSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("i"))
             {
                 startTime = System.currentTimeMillis();
-                InsertionSort.insertionSort(shapeArray);
+                Utility.insertionSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("m"))
             {
                 startTime = System.currentTimeMillis();
-                MergeSort.mergeSort(shapeArray, 0, lastIndex);
+                Utility.mergeSort(shapeArray, 0, lastIndex, compareType);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("q"))
             {
                 startTime = System.currentTimeMillis();
-                QuickSort.quickSort(shapeArray);
+                Utility.quickSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("z"))
             {
                 startTime = System.currentTimeMillis();
-                HeapSort.heapSort(shapeArray);
+                Utility.heapSort(shapeArray, compareDimension);
                 endTime = System.currentTimeMillis();                
             }
         }
@@ -185,37 +185,37 @@ public class App {
             if(selectedAlgorithm.equalsIgnoreCase("b"))
             {                
                 startTime = System.currentTimeMillis();
-                BubbleSort.bubbleSort(shapeArray, compareDimension);
+                Utility.bubbleSort(shapeArray, compareDimension);
                 endTime = System.currentTimeMillis();
             }
             else if(selectedAlgorithm.equalsIgnoreCase("s"))
             {
                 startTime = System.currentTimeMillis();
-                SelectionSort.selectionSort(shapeArray);
+                Utility.selectionSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("i"))
             {
                 startTime = System.currentTimeMillis();
-                InsertionSort.insertionSort(shapeArray);
+                Utility.insertionSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("m"))
             {
                 startTime = System.currentTimeMillis();
-                MergeSort.mergeSort(shapeArray, 0, lastIndex);
+                Utility.mergeSort(shapeArray, 0, lastIndex, compareType);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("q"))
             {
                 startTime = System.currentTimeMillis();
-                QuickSort.quickSort(shapeArray);
+                Utility.quickSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             }
             else if(selectedAlgorithm.equalsIgnoreCase("z"))
             {
                 startTime = System.currentTimeMillis();
-                HeapSort.heapSort(shapeArray);
+                Utility.heapSort(shapeArray, compareDimension);
                 endTime = System.currentTimeMillis();                
             }
         } else {
