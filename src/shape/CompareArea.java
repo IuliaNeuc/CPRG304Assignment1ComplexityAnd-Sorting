@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class CompareArea implements Comparator<Shape>
 {
-    // Overriding teh compare method from Comparator interface 
+    // Overriding the compare method from Comparator interface 
     //to compare shapes based on their base area
     @Override
     public int compare(Shape s1, Shape s2) {
