@@ -1,12 +1,6 @@
-/**
- * 
- */
-
 package application;
 
 import java.io.File;
-
-
 import shape.*;
 
 public class App {
@@ -48,7 +42,7 @@ public class App {
             if (filePath == " " || compareType == " " || sortingAlgorithm == " ") { // check if all arguments are populated
                 System.out.println("\nError: Invalid argument.\nFormat: -f<file location> -t<compare type> -s<algorithm>.\nThe order of the arguments does not matter.");
             }
-        } catch (Exception e) { // NEEDS TO THROW SOMETHINGS
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
 
@@ -109,11 +103,14 @@ public class App {
         File file = new File(filePath); // file path from command line argument -f
         Shape[] shapeArray = ReadFileClass.ReadFile(file);; // read file and store shape arrays as objects in object array
         
-        long startTime = System.currentTimeMillis(); // set current time
+        // get last index of array
+        int lastIndex = shapeArray.length - 1;
+
+        // initialize execution time variables
+        long endTime = 0;
+        long startTime = 0;
         
-        long endTime = System.currentTimeMillis();
-        int lastIndex = shapeArray.length - 1; 
-              
+        // sort by height
         if(compareDimension.equalsIgnoreCase("h"))
         {
             if (selectedAlgorithm.equalsIgnoreCase("b")) {                
@@ -144,22 +141,19 @@ public class App {
             }
         }
 
-        if(compareDimension.equalsIgnoreCase("a"))
-        {
-            if(selectedAlgorithm.equalsIgnoreCase("b"))
-            {                
+        // sort by base area
+        if(compareDimension.equalsIgnoreCase("a")) {
+            if(selectedAlgorithm.equalsIgnoreCase("b")) {                
                 startTime = System.currentTimeMillis();
                 Utility.bubbleSort(shapeArray, compareDimension);
                 endTime = System.currentTimeMillis();
             }
-            else if(selectedAlgorithm.equalsIgnoreCase("s"))
-            {
+            else if(selectedAlgorithm.equalsIgnoreCase("s")) {
                 startTime = System.currentTimeMillis();
                 Utility.selectionSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
             }
-            else if(selectedAlgorithm.equalsIgnoreCase("i"))
-            {
+            else if(selectedAlgorithm.equalsIgnoreCase("i")) {
                 startTime = System.currentTimeMillis();
                 Utility.insertionSort(shapeArray, compareType);
                 endTime = System.currentTimeMillis();                
@@ -183,6 +177,8 @@ public class App {
                 endTime = System.currentTimeMillis();                
             }
         }
+
+        // sort by volume
         if(compareDimension.equalsIgnoreCase("v"))
         {
             if(selectedAlgorithm.equalsIgnoreCase("b"))
@@ -225,44 +221,32 @@ public class App {
             System.out.println("Please enter valid comparing type");
 
         }
-        
-        // measure algorithm execution time
-        //long endTime = System.currentTimeMillis(); // set current time
-        //long elapsedTime = endTime - startTime; // calculate elapsed time
-       
-        // print every 1000th shape in the sorted array (currently not sorted)
-        // int printCounter1 = 0;
-        // for (int i = 0; i < (shapeArray.length / 1000); i++) {
-        //     System.out.println(shapeArray[i]);
-        //     printCounter1++;
-        // }
-        // System.out.println("Print count " + printCounter1);
 
-
+        // shape array length
+        int shapeArrayLength = shapeArray.length;
+         
+        // print sorted array
         if (compareDimension == "h") {
-            for (int i = 0; i < shapeArray.length; i += 1000) {
+            for (int i = 0; i < shapeArrayLength; i += 1000) {
                 System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, i, printAlg, shapeArray[i].getHeight()));
             }
+            System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, shapeArrayLength, printAlg,shapeArray[lastIndex].getHeight()));
         } else if (compareDimension == "v") {
-            for (int i = 0; i < shapeArray.length; i += 1000) {
+            for (int i = 0; i < shapeArrayLength; i += 1000) {
                 System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, i, printAlg, shapeArray[i].calcVolume()));
-        }
+            }
+            System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, shapeArrayLength, printAlg,shapeArray[lastIndex].calcVolume()));
         } else if (compareDimension == "a") {
-            for (int i = 0; i < shapeArray.length; i += 1000) {
-                System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, i, printAlg, shapeArray[i].calcBaseArea()));        }
+            for (int i = 0; i < shapeArrayLength; i += 1000) {
+                System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, i, printAlg, shapeArray[i].calcBaseArea()));
+            }
+            System.out.println(String.format("Sorted by %s at index %d using %s: %.2f", printDimension, shapeArrayLength, printAlg,shapeArray[lastIndex].calcBaseArea()));
         } else {
             System.out.println("Please enter valid comparing type");
         }
         
-
-
-        //testing code
-        // for (int i = 0; i < shapeArray.length; i++) {
-        //     System.out.println(shapeArray[i]);
-        // }
-
+        // print execution time
         long elapsedTime = endTime - startTime;
-        System.out.println("\nShape array length: " + shapeArray.length); // test code
         System.out.println("\nEXECUTION TIME: " + elapsedTime + " milliseconds\n"); // print algotithm execution time
     }
 }

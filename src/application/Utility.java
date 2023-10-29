@@ -4,10 +4,9 @@ import java.util.Arrays;
 
 import shape.*;
 
-
-
-
 public class Utility {
+
+    // bubble sort
     public static <T extends Shape> void bubbleSort(T[] array, String compareType) {
         int arraySize = array.length;
 
@@ -20,6 +19,7 @@ public class Utility {
         }
     }
 
+    // heap sort
     public static <T extends Shape> void heapSort(T[] arr, String compareType) {
         int n = arr.length;
 
@@ -33,6 +33,7 @@ public class Utility {
         }
     }
 
+    // heapify
     private static <T extends Shape> void heapify(T[] arr, int n, int i, String compareType) {
         int largest = i;
         int left = 2 * i + 1;
@@ -52,33 +53,28 @@ public class Utility {
         }
     }
 
-    public static <T extends Shape> void insertionSort(T[] arr, String compareType)
-    {
+    // insertion sort
+    public static <T extends Shape> void insertionSort(T[] arr, String compareType) {
         //Outer loop for iterating through the array
-        for(int i = 0; i < arr.length - 1; i++)
-        {
+        for(int i = 0; i < arr.length - 1; i++) {
             //Inner loop for comparing and swapping adjacent elements
-            for(int j = i; j >=0; j--)
-            {
+            for(int j = i; j >=0; j--) {
                 //Compare adjacent elements and swap if they are not in the order
-                if(compare(arr[j], arr[j+1], compareType) > 0)
-                {
+                if(compare(arr[j], arr[j+1], compareType) > 0) {
                     //Swap the elements              
                     swap(arr, j, j + 1); // call the swapping method
                 }
                 //If no swaps are needed in this pass, break out of the inner loop
-                else
-                {
+                else {
                     break;
                 }
             }
         }
     }
 
-    public static <T extends Shape> void mergeSort(T[] arr, int firstIndex, int lastIndex, String compareType)
-    {
-        if(firstIndex < lastIndex)
-        {
+    // merge sort
+    public static <T extends Shape> void mergeSort(T[] arr, int firstIndex, int lastIndex, String compareType) {
+        if(firstIndex < lastIndex) {
             //calculate the middle index of the array
             int mid = (firstIndex + lastIndex) / 2;
 
@@ -92,13 +88,9 @@ public class Utility {
     }
 
     //A method to merge two halves of an array
-    static <T extends Shape> void merg(T[] arr, int firstIndex,  int middle, int lastIndex, String compareType)
-    {
-        
+    static <T extends Shape> void merg(T[] arr, int firstIndex,  int middle, int lastIndex, String compareType) {        
         T[] leftArray = Arrays.copyOfRange(arr, firstIndex, middle + 1);
         T[] rightArray = Arrays.copyOfRange(arr, middle + 1, lastIndex + 1);
-
- 
 
         //Initialize indexes for left and right arrays
         int leftIndex = 0;
@@ -114,15 +106,12 @@ public class Utility {
          * It compares elements from both arrays and places them in ascending 
          * order in the original array.
          */
-        while(leftIndex < leftArray.length && rightIndex < rightArray.length)
-        {
-            if (compare(leftArray[leftIndex], rightArray[rightIndex], compareType) <= 0)
-            {
+        while(leftIndex < leftArray.length && rightIndex < rightArray.length) {
+            if (compare(leftArray[leftIndex], rightArray[rightIndex], compareType) <= 0) {
                 arr[currentIndex] = leftArray[leftIndex];
                 leftIndex++;
             }
-            else
-            {
+            else {
                 arr[currentIndex] = rightArray[rightIndex];
                 rightIndex++;
             }
@@ -130,27 +119,24 @@ public class Utility {
         }
 
         // Copy any remaining elements from the left array
-        while (leftIndex < leftArray.length)        
+        while (leftIndex < leftArray.length) {
             arr[currentIndex++] = leftArray[leftIndex++];
-        
-
+        }    
+            
         // Copy any remaining elements from the right array
-        while(rightIndex < rightArray.length)        
+        while(rightIndex < rightArray.length) {
             arr[currentIndex++] = rightArray[rightIndex++];
-        
+        }     
     }
 
-        
-    public static <T extends Shape> void quickSort(T[] arr, String compareType)
-    {
+    // quick sort
+    public static <T extends Shape> void quickSort(T[] arr, String compareType) {
         quickSort(arr, 0, arr.length - 1, compareType);
     }
 
     //Recursive quick sort method
-    public static <T extends Shape> void quickSort(T[] arr, int low, int high, String compareType)
-    {
-        if(low < high)
-        {
+    public static <T extends Shape> void quickSort(T[] arr, int low, int high, String compareType) {
+        if(low < high) {
             //Partition the array and get the pivot index
             int index = partition(arr, low, high, compareType);
 
@@ -161,70 +147,57 @@ public class Utility {
     }
 
     //Partitioning the array
-    public static < T extends Shape> int partition(T[] arr, int low, int high, String compareType)
-    {
+    public static < T extends Shape> int partition(T[] arr, int low, int high, String compareType) {
         //Choose the pivot as the last element
         T pivot = arr[high];
 
         //Initialize the index of the smaller element
         int i = low;
 
-        for(int j = low; j < high; j++)
-        {
+        for(int j = low; j < high; j++) {
             //If the current element is greater than the pivot, swap elements
-            if(compare(arr[j], pivot, compareType) < 0)
-            {
-           
-
+            if(compare(arr[j], pivot, compareType) < 0) {
                 swap(arr, i, j);
                 i++; //Move the index of the smaller element
             }
         }
-
-        //Swap the pivot element with the element at the correct position     
-
-        swap(arr, high, i);
-
+        swap(arr, high, i); //Swap the pivot element with the element at the correct position  
         return i; // return the index of the pivot element
     }
 
-    public static <T extends Shape> void selectionSort(T[] array, String compareType)
-    {
+    // selection sort
+    public static <T extends Shape> void selectionSort(T[] array, String compareType) {
         int x = array.length;
         
         //If the array has only one element, it is already sorted, no need to sort
         if(x == 1) return;
 
-        for(int i = 0; i < x; i++)
-        {
+        for(int i = 0; i < x; i++) {
             T large = array[i]; // Assume the current element is the largest 
 
             int largeIndex = i; //Track teh index of the largest element
             
 
             //Iterate through the remaining unsorted elements to find the largest element
-            for(int j = i; j < x; j++)
-            {
+            for(int j = i; j < x; j++) {
                 int res = compare(large, array[j], compareType); // Compare element for natural order
-                if(res > 0)
-                {
+                if(res > 0) {
                     large = array[j]; //Update the largest element.
                     largeIndex = j; // update the index of the largest element.
                 }
             }
 
-            // // After the inner loop, 'large' contains the largest element in the remaining unsorted portion
+            // After the inner loop, 'large' contains the largest element in the remaining unsorted portion
             int res2 = compare(large, array[i], compareType);
 
             // If 'large' is greater than the current element at index 'i', swap them
-            if(res2 < 0 )
-            {              
-
+            if(res2 < 0 ) {              
                 swap(array, i, largeIndex);
             }
         }
     }
 
+    // shell sort
     private static <T extends Shape> int compare(T a, T b, String compareType) {
         switch (compareType) {
             case "h":
@@ -238,6 +211,7 @@ public class Utility {
         }
     }
 
+    // swap
     private static <T> void swap(T[] arr, int i, int j) {
         T temp = arr[i];
         arr[i] = arr[j];
