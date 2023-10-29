@@ -6,16 +6,6 @@ import shape.*;
 public class App {
     public static void main(String[] args) {
         
-        // //args for testing
-        //args = new String[6];
-        // args[0] = "-fsrc/resources/polyfor3.txt";  // change name of .txt file to test different files in resources folder
-        // args[1] = "-tv";
-        // args[2] = "-sm";
-        
-        // for (int i = 0; i < args.length; i++) {
-        //     System.out.println(args[i]);
-        // }
-        
         // variables for command line arguments
         String filePath = "";
         String compareType = "";
